@@ -1,9 +1,9 @@
 <p>
-  wishlist for {{ownerName}}
+  wishlist for {{owner}}
 </p>
 Presents:
 <ul>
   <li *ngFor="let present of presents">
-    {{present}}
+    <app-present [name]="present"></app-present>
   </li>
 </ul>
