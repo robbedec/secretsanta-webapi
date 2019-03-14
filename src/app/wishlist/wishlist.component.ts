@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Wishlist } from '../wishlist.model';
 
 @Component({
   selector: 'app-wishlist',

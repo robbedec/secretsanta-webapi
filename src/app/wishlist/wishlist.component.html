@@ -1,3 +1,9 @@
 <p>
-  wishlist works!
+  wishlist for {{ownerName}}
 </p>
+Presents:
+<ul>
+  <li *ngFor="let present of presents">
+    {{present}}
+  </li>
+</ul>
