@@ -5,6 +5,10 @@ import { AppComponent } from './app.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { PresentComponent } from './present/present.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatListModule, MatCardModule, MatIconModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +16,12 @@ import { PresentComponent } from './present/present.component';
     PresentComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MatListModule,
+    MatCardModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

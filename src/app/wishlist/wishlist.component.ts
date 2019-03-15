@@ -7,15 +7,10 @@ import { Wishlist } from '../wishlist.model';
   styleUrls: ['./wishlist.component.css']
 })
 export class WishlistComponent implements OnInit {
- // @Input() public wishlist: Wishlist;
-    owner: string;
-    presents: string[];
+  @Input() public wishlist: Wishlist;
 
 
-  constructor() { 
-    this.owner = "robbe";
-    this.presents = ["laptop", "tv", "fiets"];
-  }
+  constructor() {}
 
   ngOnInit() {
   }

@@ -1,3 +1,4 @@
+
 export class Wishlist {
     constructor(
         private _ownerName: string,
@@ -19,5 +20,10 @@ export class Wishlist {
 
     addPresent(name: string){
         this._presents.push(name);
+    }
+
+    static fromJSON(json: any): Wishlist {
+        const rec = new Wishlist(json.ownerName, json.presents, json.dateAdded);
+        return rec;
     }
 }

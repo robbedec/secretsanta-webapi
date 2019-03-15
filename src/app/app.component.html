@@ -1,9 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
- <div>
-   <app-wishlist></app-wishlist>
- </div>
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="0;5%" fxLayoutAlign="start">
+  <div class="wishlist" *ngFor="let localWishlist of wishlists" fxFlex="0 0 calc(25%-0.5%)" fxFles.xs="100%">
+    <app-wishlist [wishlist]="localWishlist"></app-wishlist>
+  </div>
+</div>
 

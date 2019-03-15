@@ -1,9 +1,12 @@
-<p>
-  wishlist for {{owner}}
-</p>
-Presents:
-<ul>
-  <li *ngFor="let present of presents">
-    <app-present [name]="present"></app-present>
-  </li>
-</ul>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title><mat-icon>card_giftcard</mat-icon>wishlist for {{ wishlist.ownerName }}</mat-card-title>
+    <mat-card-subtitle>added on {{ wishlist.dateAdded | date: longDate }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <h3 mat-subheader>Presents:</h3>
+    <mat-list>
+      <mat-list-item *ngFor="let present of wishlist.presents">{{present}}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
