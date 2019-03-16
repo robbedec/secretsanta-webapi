@@ -25,7 +25,9 @@
     </mat-accordion>
     <h3 mat-subheader>Presents:</h3>
     <mat-list>
-      <mat-list-item *ngFor="let present of (wishlist.presents | presentFilter: filterPresentName)">{{present}}</mat-list-item>
+      <mat-list-item *ngFor="let present of (wishlist.presents | presentFilter: filterPresentName)">
+        <app-present [present]="present"></app-present>
+      </mat-list-item>
     </mat-list>
   </mat-card-content>
 </mat-card>

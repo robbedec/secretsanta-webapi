@@ -1,4 +1,9 @@
-<mat-form-field>
-  <input matInput placeholder="name" type="text" #newpresentname/>
-</mat-form-field><br>
-<button (click)="addPresent(newpresentname)" mat-raised-button>add present</button>
+<form [formGroup]="present" (ngSubmit)='onSubmit()'>
+  <mat-form-field>
+    <input matInput aria-label="name" placeholder="name" type="text" formControlName="name" required/>
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput aria-label="price" placeholder="price" type="number" formControlName="price" required/>
+  </mat-form-field><br>
+  <button type="submit" mat-raised-button [disabled]="!present.valid">add present</button>
+</form>

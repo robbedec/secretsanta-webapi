@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Present } from '../present.model';
 
 @Component({
   selector: 'app-present',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./present.component.css']
 })
 export class PresentComponent implements OnInit {
-  @Input() name: string;
+  @Input() present: Present;
   constructor() { }
 
   ngOnInit() {

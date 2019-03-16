@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Wishlist } from '../wishlist.model';
+import { Present } from '../present.model';
 import { Subject } from 'rxjs'
 
 @Component({
@@ -21,8 +22,8 @@ export class WishlistComponent implements OnInit {
   ngOnInit() {
   }
 
-  addPresent(name: string){
-    this.wishlist.addPresent(name);
+  addPresent(present: Present){
+    this.wishlist.addPresent(present);
   }
 
   applyFilter(filter: string){
