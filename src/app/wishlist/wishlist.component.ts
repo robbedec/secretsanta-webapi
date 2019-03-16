@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Wishlist } from '../wishlist.model';
+import { Subject } from 'rxjs'
 
 @Component({
   selector: 'app-wishlist',
@@ -9,9 +10,13 @@ import { Wishlist } from '../wishlist.model';
 export class WishlistComponent implements OnInit {
   @Input() public wishlist: Wishlist;
 
-  constructor() {}
-
   public filterPresentName: string;
+  public filterPresentName$ = new Subject<string>();
+
+  constructor() {
+    this.filterPresentName$.subscribe(val => (this.filterPresentName = val));
+  }
+
 
   ngOnInit() {
   }

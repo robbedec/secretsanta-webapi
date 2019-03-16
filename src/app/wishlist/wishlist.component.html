@@ -20,7 +20,7 @@
         <mat-expansion-panel-header>
           Filter presents
         </mat-expansion-panel-header>
-        <app-filter-present (newFilter)="applyFilter($event)"></app-filter-present>
+        <app-filter-present (newFilter)="filterPresentName$.next($event)"></app-filter-present>
       </mat-expansion-panel>
     </mat-accordion>
     <h3 mat-subheader>Presents:</h3>
