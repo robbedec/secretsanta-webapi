@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { WISHLISTS } from './mock-wishlists';
+import { WishlistDataService } from './wishlist-data.service';
+import { Wishlist } from './wishlist.model';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,10 @@ import { WISHLISTS } from './mock-wishlists';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'secretsanta';
-  wishlists = WISHLISTS;
-  constructor() {}
+  constructor(private _wishlistDataService: WishlistDataService) {}
+
+  get wishlists(): Wishlist[] {
+    return this._wishlistDataService.wishlists;
+  }
+
 }

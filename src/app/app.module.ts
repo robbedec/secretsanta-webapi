@@ -9,6 +9,8 @@ import { AddPresentComponent } from './add-present/add-present.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule, MatCardModule, MatIconModule, MatExpansionModule, MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { PresentFilterPipe } from './present-filter.pipe';
+import { FilterPresentComponent } from './filter-present/filter-present.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     WishlistComponent,
     PresentComponent,
     AddPresentComponent,
+    PresentFilterPipe,
+    FilterPresentComponent,
   ],
   imports: [
     BrowserModule,

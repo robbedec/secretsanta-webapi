@@ -4,6 +4,7 @@
     <mat-card-subtitle>added on {{ wishlist.dateAdded | date: longDate }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
+    <mat-accordion>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -15,9 +16,16 @@
         </mat-expansion-panel-header>
         <app-add-present (newPresent)="addPresent($event)"></app-add-present>
       </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          Filter presents
+        </mat-expansion-panel-header>
+        <app-filter-present (newFilter)="applyFilter($event)"></app-filter-present>
+      </mat-expansion-panel>
+    </mat-accordion>
     <h3 mat-subheader>Presents:</h3>
     <mat-list>
-      <mat-list-item *ngFor="let present of wishlist.presents">{{present}}</mat-list-item>
+      <mat-list-item *ngFor="let present of (wishlist.presents | presentFilter: filterPresentName)">{{present}}</mat-list-item>
     </mat-list>
   </mat-card-content>
 </mat-card>

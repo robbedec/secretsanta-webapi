@@ -9,8 +9,9 @@ import { Wishlist } from '../wishlist.model';
 export class WishlistComponent implements OnInit {
   @Input() public wishlist: Wishlist;
 
-
   constructor() {}
+
+  public filterPresentName: string;
 
   ngOnInit() {
   }
@@ -19,4 +20,7 @@ export class WishlistComponent implements OnInit {
     this.wishlist.addPresent(name);
   }
 
+  applyFilter(filter: string){
+    this.filterPresentName = filter;
+  }
 }
