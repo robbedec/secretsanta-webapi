@@ -15,4 +15,8 @@ export class WishlistComponent implements OnInit {
   ngOnInit() {
   }
 
+  addPresent(name: string){
+    this.wishlist.addPresent(name);
+  }
+
 }
