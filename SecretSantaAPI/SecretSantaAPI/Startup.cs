@@ -6,10 +6,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using SecretSantaAPI.Data;
+using SecretSantaAPI.Data.Repositories;
+using SecretSantaAPI.Models;
 
 namespace SecretSantaAPI
 {
@@ -26,10 +30,17 @@ namespace SecretSantaAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddDbContext<SecretSantaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("connection")));
+
+            services.AddScoped<SecretSantaDataInitializer>();
+            services.AddScoped<IWishlistRepository, WishlistRepository>();
+
+            services.AddOpenApiDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SecretSantaDataInitializer secretSantaDataInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -43,6 +54,11 @@ namespace SecretSantaAPI
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            app.UseSwaggerUi3();
+            app.UseSwagger();
+
+            secretSantaDataInitializer.InitializeData();
         }
     }
 }
