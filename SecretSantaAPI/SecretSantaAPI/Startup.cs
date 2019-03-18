@@ -31,7 +31,7 @@ namespace SecretSantaAPI
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<SecretSantaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("connection")));
+            services.AddDbContext<SecretSantaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<SecretSantaDataInitializer>();
             services.AddScoped<IWishlistRepository, WishlistRepository>();

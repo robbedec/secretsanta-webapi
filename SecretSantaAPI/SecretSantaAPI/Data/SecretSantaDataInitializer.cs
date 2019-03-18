@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace SecretSantaAPI.Data
 {
@@ -16,7 +17,11 @@ namespace SecretSantaAPI.Data
 
         public void InitializeData()
         {
+            _dbContext.Database.EnsureDeleted();
+            if (_dbContext.Database.EnsureCreated())
+            {
 
+            }
         }
     }
 }
