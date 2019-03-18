@@ -12,10 +12,14 @@ export class AddPresentComponent implements OnInit {
   public present: FormGroup;
   constructor() { }
 
+  categories = ['music', 'electronics',
+            'sports', 'outdoors'];
+
   ngOnInit() {
     this.present = new FormGroup({
       name: new FormControl(null, Validators.required),
-      price: new FormControl(null, [Validators.required, Validators.min(1)])
+      price: new FormControl(null, [Validators.required, Validators.min(1)]),
+      category: new FormControl(null)
     })
   }
 

@@ -8,10 +8,12 @@ import { PresentComponent } from './present/present.component';
 import { AddPresentComponent } from './add-present/add-present.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatListModule, MatCardModule, MatIconModule, MatExpansionModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatToolbarModule, MatSidenavModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { MatListModule, MatCardModule, MatIconModule, MatExpansionModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatToolbarModule, MatSidenavModule, MatSelectModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PresentFilterPipe } from './present-filter.pipe';
 import { FilterPresentComponent } from './filter-present/filter-present.component';
+import { EditPresentComponent } from './edit-present/edit-present.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { FilterPresentComponent } from './filter-present/filter-present.componen
     AddPresentComponent,
     PresentFilterPipe,
     FilterPresentComponent,
+    EditPresentComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,9 @@ import { FilterPresentComponent } from './filter-present/filter-present.componen
     MatButtonModule,
     ReactiveFormsModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    HttpClientModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
