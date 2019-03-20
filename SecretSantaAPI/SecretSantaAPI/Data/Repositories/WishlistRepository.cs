@@ -1,4 +1,5 @@
-﻿using SecretSantaAPI.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using SecretSantaAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,39 +9,48 @@ namespace SecretSantaAPI.Data.Repositories
 {
     public class WishlistRepository : IWishlistRepository
     {
+        private readonly SecretSantaContext _dbContext;
+        private readonly DbSet<Wishlist> _wishlists;
+
+        public WishlistRepository(SecretSantaContext dbContext)
+        {
+            _dbContext = dbContext;
+            _wishlists = dbContext.Wishlists;
+        }
         public void Add(Wishlist wishlist)
         {
-            throw new NotImplementedException();
+            _wishlists.Add(wishlist);
         }
 
         public void Delete(Wishlist wishlist)
         {
-            throw new NotImplementedException();
+            _wishlists.Remove(wishlist);
         }
 
         public IEnumerable<Wishlist> GetAll()
         {
-            throw new NotImplementedException();
+            return _wishlists.Include(b => b.Presents).ToList();
         }
 
         public Wishlist GetBy(int id)
         {
-            throw new NotImplementedException();
+            return _wishlists.Include(b => b.Presents).SingleOrDefault(b => b.Id == id);
         }
 
         public void SaveChanges()
         {
-            throw new NotImplementedException();
+            _dbContext.SaveChanges();
         }
 
         public bool TryGetRecipe(int id, out Wishlist wishlist)
         {
-            throw new NotImplementedException();
+            wishlist = _dbContext.Wishlists.Include(b => b.Presents).FirstOrDefault(b => b.Id == id);
+            return wishlist != null;
         }
 
         public void Update(Wishlist wishlist)
         {
-            throw new NotImplementedException();
+            _dbContext.Update(wishlist);
         }
     }
 }
