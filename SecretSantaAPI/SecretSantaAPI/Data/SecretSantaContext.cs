@@ -30,9 +30,9 @@ namespace SecretSantaAPI.Data
             builder.Entity<Present>().Property(b => b.Price).IsRequired().HasMaxLength(10);
             builder.Entity<Present>().Property(b => b.Category);
 
-            builder.Entity<Customer>().Property(c => c.LastName).IsRequired().HasMaxLength(50);
-            builder.Entity<Customer>().Property(c => c.FirstName).IsRequired().HasMaxLength(50);
-            builder.Entity<Customer>().Property(c => c.Email).IsRequired().HasMaxLength(100);
+            builder.Entity<ApplicationUser>().Property(c => c.LastName).IsRequired().HasMaxLength(50);
+            builder.Entity<ApplicationUser>().Property(c => c.FirstName).IsRequired().HasMaxLength(50);
+            builder.Entity<ApplicationUser>().Property(c => c.Email).IsRequired().HasMaxLength(100);
 
             builder.Entity<Wishlist>().HasData(new Wishlist { Id = 1, OwnerName = "Robbe", Created = DateTime.Now });
 
@@ -45,6 +45,6 @@ namespace SecretSantaAPI.Data
         }
 
         public DbSet<Wishlist> Wishlists { get; set; }
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<ApplicationUser> Users { get; set; }
     }
 }

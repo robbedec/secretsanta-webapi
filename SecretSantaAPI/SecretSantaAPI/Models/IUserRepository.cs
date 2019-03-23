@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace SecretSantaAPI.Models
 {
-    public interface ICustomerRepository
+    public interface IUserRepository
     {
-        Customer GetBy(string email);
-        void Add(Customer customer);
+        ApplicationUser GetBy(string email);
+        void Add(ApplicationUser user);
         void SaveChanges();
     }
 }

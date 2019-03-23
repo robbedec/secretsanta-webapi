@@ -13,6 +13,6 @@ export class WishlistDataService {
 
   get wishlist$(): Observable<Wishlist> {
     //return this._wishlists;
-    return this.http.get(`${environment.apiUrl}/wishlist`).pipe(map(Wishlist.fromJSON));
+    return this.http.get(`${environment.apiUrl}/wishlists`).pipe(map(Wishlist.fromJSON));
   }
 }

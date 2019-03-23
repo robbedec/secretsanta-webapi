@@ -20,13 +20,13 @@ namespace SecretSantaAPI.Controllers
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly ICustomerRepository _customerRepository;
+        private readonly IUserRepository _customerRepository;
         private readonly IConfiguration _config;
 
         public AccountController(
           SignInManager<IdentityUser> signInManager,
           UserManager<IdentityUser> userManager,
-          ICustomerRepository customerRepository,
+          IUserRepository customerRepository,
           IConfiguration config)
         {
             _signInManager = signInManager;
@@ -68,7 +68,7 @@ namespace SecretSantaAPI.Controllers
         public async Task<ActionResult<String>> Register(RegisterDTO model)
         {
             IdentityUser user = new IdentityUser { UserName = model.Email, Email = model.Email };
-            Customer customer = new Customer { Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
+            ApplicationUser customer = new ApplicationUser { Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)

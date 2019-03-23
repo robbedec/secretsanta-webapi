@@ -14,12 +14,12 @@ namespace SecretSantaAPI.Controllers
     [Route("api/[controller]")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
-    public class WishlistController : ControllerBase
+    public class WishlistsController : ControllerBase
     {
         private readonly IWishlistRepository _wishlistRepository;
-        private readonly ICustomerRepository _customerRepository;
+        private readonly IUserRepository _customerRepository;
 
-        public WishlistController(IWishlistRepository wishlistRepository, ICustomerRepository customerRepository)
+        public WishlistsController(IWishlistRepository wishlistRepository, IUserRepository customerRepository)
         {
             _wishlistRepository = wishlistRepository;
             _customerRepository = customerRepository;
@@ -36,8 +36,8 @@ namespace SecretSantaAPI.Controllers
         {
             //return _wishlistRepository.GetAll().OrderBy(b => b.OwnerName);
             ///Customer customer = _customerRepository.GetBy(User.Identity.Name);
-            Customer customer = _customerRepository.GetBy("robbe.decorte@student.hogent.be");
-            return customer.Wishlist;
+            ApplicationUser user = _customerRepository.GetBy("robbe.decorte@student.hogent.be");
+            return user.Wishlist;
         }
 
         // GET: api/Wishlist/5

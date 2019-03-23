@@ -23,13 +23,21 @@ namespace SecretSantaAPI.Data
             _dbContext.Database.EnsureDeleted();
             if (_dbContext.Database.EnsureCreated())
             {
-                Customer robbedec = new Customer { Email = "robbe.decorte@student.hogent.be", FirstName = "Robbe", LastName = "Decorte" };
+                ApplicationUser robbedec = new ApplicationUser
+                {
+                    Email = "robbe.decorte@student.hogent.be",
+                    Username = "robbedec",
+                    FirstName = "Robbe",
+                    LastName = "Decorte",
+                    AvatarUrl = "https://avatars1.githubusercontent.com/u/21178642?v=4"
+                };
                 robbedec.Wishlist = _dbContext.Wishlists.First();
                 await CreateUser(robbedec.Email, "P@ssword1");
-                Customer webiv = new Customer { Email = "webiv", FirstName = "webiv", LastName = "les" };
+
+                ApplicationUser webiv = new ApplicationUser { Email = "webiv", FirstName = "webiv", LastName = "les" };
                 await CreateUser(webiv.Email, "gelukkiggeennetbeans");
 
-                _dbContext.Customers.AddRange(robbedec, webiv);
+                _dbContext.Users.AddRange(robbedec, webiv);
                 _dbContext.SaveChanges();
             }
         }

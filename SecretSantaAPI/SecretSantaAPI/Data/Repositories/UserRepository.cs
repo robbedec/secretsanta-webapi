@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 
 namespace SecretSantaAPI.Data.Repositories
 {
-    public class CustomerRepository : ICustomerRepository
+    public class UserRepository : IUserRepository
     {
         private readonly SecretSantaContext _dbContext;
-        private readonly DbSet<Customer> _customers;
+        private readonly DbSet<ApplicationUser> _customers;
 
-        public CustomerRepository(SecretSantaContext dbContext)
+        public UserRepository(SecretSantaContext dbContext)
         {
             _dbContext = dbContext;
-            _customers = dbContext.Customers;
+            _customers = dbContext.Users;
         }
 
-        public void Add(Customer customer)
+        public void Add(ApplicationUser user)
         {
-            _customers.Add(customer);
+            _customers.Add(user);
         }
 
-        public Customer GetBy(string email)
+        public ApplicationUser GetBy(string email)
         {
             return _customers.Include(b => b.Wishlist).ThenInclude(b => b.Presents).SingleOrDefault(b => b.Email == email);
         }
