@@ -10,22 +10,27 @@ namespace SecretSantaAPI.Data.Repositories
     public class UserRepository : IUserRepository
     {
         private readonly SecretSantaContext _dbContext;
-        private readonly DbSet<ApplicationUser> _customers;
+        private readonly DbSet<ApplicationUser> _users;
 
         public UserRepository(SecretSantaContext dbContext)
         {
             _dbContext = dbContext;
-            _customers = dbContext.Users;
+            _users = dbContext.Users;
         }
 
         public void Add(ApplicationUser user)
         {
-            _customers.Add(user);
+            _users.Add(user);
         }
 
         public ApplicationUser GetBy(string email)
         {
-            return _customers.Include(b => b.Wishlist).ThenInclude(b => b.Presents).SingleOrDefault(b => b.Email == email);
+            return _users.Include(b => b.Wishlist).ThenInclude(b => b.Presents).SingleOrDefault(b => b.Email == email);
+        }
+
+        public ApplicationUser GetByUsername(string username)
+        {
+            return _users.Include(b => b.Wishlist).ThenInclude(b => b.Presents).SingleOrDefault(b => b.Username == username);   
         }
 
         public void SaveChanges()

@@ -8,6 +8,7 @@ namespace SecretSantaAPI.Models
     public interface IUserRepository
     {
         ApplicationUser GetBy(string email);
+        ApplicationUser GetByUsername(string username);
         void Add(ApplicationUser user);
         void SaveChanges();
     }

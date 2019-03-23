@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {WishlistDataService } from '../wishlist-data.service';
+import {WishlistDataService } from '../../services/wishlist-data.service';
 import { Observable, Subject } from 'rxjs';
 import { Wishlist } from '../wishlist.model'
 

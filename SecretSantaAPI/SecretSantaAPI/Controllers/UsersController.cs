@@ -20,11 +20,22 @@ namespace SecretSantaAPI.Controllers
             _userRepository = userRepository;
         }
 
+        [HttpGet("{username}")]
+        public ActionResult<ApplicationUser> GetWishlist(string username)
+        {
+            ApplicationUser user = _userRepository.GetByUsername(username);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return user;
+        }
+
         [HttpGet("CurrentUser")]
         public ApplicationUser GetCurrentUser()
         {
             //return _userRepository.GetBy(User.Identity.Name);
-			return _userRepository.GetBy("robbe.decorte@student.hogent.be";
+			return _userRepository.GetBy("robbe.decorte@student.hogent.be");
         }
     }
 }
