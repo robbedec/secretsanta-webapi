@@ -12,14 +12,14 @@ namespace SecretSantaAPI.Controllers
     [ApiConventionType(typeof(DefaultApiConventions))]
     [Produces("application/json")]
     [Route("api/[controller]")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
-    public class WishlistsController : ControllerBase
+    public class WishlistController : ControllerBase
     {
         private readonly IWishlistRepository _wishlistRepository;
         private readonly ICustomerRepository _customerRepository;
 
-        public WishlistsController(IWishlistRepository wishlistRepository, ICustomerRepository customerRepository)
+        public WishlistController(IWishlistRepository wishlistRepository, ICustomerRepository customerRepository)
         {
             _wishlistRepository = wishlistRepository;
             _customerRepository = customerRepository;
@@ -28,13 +28,16 @@ namespace SecretSantaAPI.Controllers
 
         // GET: api/Wishlist
         /// <summary>
-        /// Get all recipes ordered by name
+        /// Get wishlist from current user
         /// </summary>
-        /// <returns>array of recipes</returns>
+        /// <returns>wishlist from logged in user</returns>
         [HttpGet]
-        public IEnumerable<Wishlist> GetWishlists()
+        public Wishlist GetWishlist()
         {
-            return _wishlistRepository.GetAll().OrderBy(b => b.OwnerName);
+            //return _wishlistRepository.GetAll().OrderBy(b => b.OwnerName);
+            ///Customer customer = _customerRepository.GetBy(User.Identity.Name);
+            Customer customer = _customerRepository.GetBy("robbe.decorte@student.hogent.be");
+            return customer.Wishlist;
         }
 
         // GET: api/Wishlist/5
@@ -49,16 +52,6 @@ namespace SecretSantaAPI.Controllers
             return wishlist;
         }
 
-        /// <summary>
-        /// Get favorite recipes of current user
-        /// </summary>
-        [HttpGet("Wishlist")]
-        public Wishlist GetUserWishlist()
-        {
-            Customer customer = _customerRepository.GetBy(User.Identity.Name);
-            return customer.Wishlist;
-        }
-
         // POST: api/Wishlist
         [HttpPost]
         public ActionResult<Wishlist> PostWishlist(WishlistDTO wishlist)
@@ -70,7 +63,7 @@ namespace SecretSantaAPI.Controllers
             }
             _wishlistRepository.Add(wishlistToCreate);
             _wishlistRepository.SaveChanges();
-            return CreatedAtAction(nameof(GetWishlists), new { id = wishlistToCreate.Id }, wishlistToCreate);
+            return CreatedAtAction(nameof(GetWishlist), new { id = wishlistToCreate.Id }, wishlistToCreate);
         }
 
         // PUT: api/Wishlist/5

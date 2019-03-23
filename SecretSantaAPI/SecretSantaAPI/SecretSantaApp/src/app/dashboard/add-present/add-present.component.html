@@ -1,6 +1,7 @@
 <form [formGroup]="present" (ngSubmit)='onSubmit()' fxLayout="column">
   <mat-form-field>
     <input matInput aria-label="name" placeholder="name" type="text" formControlName="name" required/>
+    <!--<mat-error *ngIf="wishlist.get('name')['errors']?.required">is required</mat-error>-->
   </mat-form-field>
   <div fxLayout="row" fxLayoutGap="10px">
     <mat-form-field fxFlex="50">
