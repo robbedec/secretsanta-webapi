@@ -11,8 +11,17 @@
       <div fxLayout="row" fxLayoutAlign="center" fxFlex="80">
         <mat-tab-group fxFlex="80">
           <mat-tab label="Wishlist">
-              <!--<app-wishlist [wishlist]="user.wishlist"></app-wishlist>-->
-            {{user.wishlist.ownerName}}
+            <mat-list fxFlexFill fxLayout="column">
+              <mat-list-item *ngFor="let present of user.wishlist.presents">
+                <div fxFlexFill fxLayoutAlign="center center"> 
+                  <div fxFlex="60">{{ present.name }}</div>  
+                  <div fxFlex="20">€{{ present.price }}</div>
+                  <div fxFlex="20">{{present.category}}</div>
+                  <mat-divider></mat-divider>
+                </div>
+
+              </mat-list-item>
+            </mat-list>
           </mat-tab>
           <mat-tab label="Messages">Content</mat-tab>
           <mat-tab label="Information">Content</mat-tab>
