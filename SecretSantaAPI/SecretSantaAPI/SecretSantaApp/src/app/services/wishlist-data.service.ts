@@ -12,7 +12,6 @@ export class WishlistDataService {
   constructor(private http: HttpClient) { }
 
   get wishlist$(): Observable<Wishlist> {
-    //return this._wishlists;
     return this.http.get(`${environment.apiUrl}/wishlists`).pipe(map(Wishlist.fromJSON));
   }
 }

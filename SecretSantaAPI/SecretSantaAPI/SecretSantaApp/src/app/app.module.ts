@@ -9,7 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { MaterialModule } from './material/material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { ProfileModule } from './profile/profile.module';
 
 
 
@@ -22,10 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    AppRoutingModule,
     MaterialModule,
-    DashboardModule
+    DashboardModule,
+    ProfileModule,
+    AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

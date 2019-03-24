@@ -13,7 +13,10 @@ import {
   MatSelectModule,
   MatOptionModule,
   MatGridListModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatTabsModule,
+  MatDividerModule,
+  MatTableModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -36,7 +39,10 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatGridListModule,
     MatProgressSpinnerModule,
     FlexLayoutModule,
-    LayoutModule
+    LayoutModule,
+    MatTabsModule,
+    MatDividerModule,
+    MatTableModule
   ],
   exports: [
     CommonModule,
@@ -54,7 +60,10 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatGridListModule,
     MatProgressSpinnerModule,
     FlexLayoutModule,
-    LayoutModule
+    LayoutModule,
+    MatTabsModule,
+    MatDividerModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { FilterPresentComponent } from './filter-present/filter-present.component';
 import { EditPresentComponent } from './edit-present/edit-present.component';
@@ -12,10 +11,7 @@ import { MaterialModule } from '../material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
-const routes = [
-  { path: 'wishlist', component: WishlistComponent}
-];
+import { ProfileModule } from '../profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -32,8 +28,6 @@ const routes = [
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
   ],
-  providers: [HttpClientModule]
 })
 export class DashboardModule { }

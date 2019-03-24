@@ -31,7 +31,7 @@ export class User {
     }
 
     static fromJSON(json: any): User {
-        const rec = new User(json.username, json.firstName, json.lastName, json.email, json.avatarUrl, json.wishlist.map(Wishlist.fromJSON));
+        const rec = new User(json.username, json.firstName, json.lastName, json.email, json.avatarUrl, Wishlist.fromJSON(json.wishlist));
         return rec;
     }
 }
