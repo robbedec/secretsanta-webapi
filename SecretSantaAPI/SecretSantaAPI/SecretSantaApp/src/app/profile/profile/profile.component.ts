@@ -3,6 +3,7 @@ import { UserDataService } from '../../services/user-data.service';
 import { Observable } from 'rxjs';
 import { User } from '../user.model'
 import { async } from 'q';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -10,9 +11,8 @@ import { async } from 'q';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  private _fetchUser$: Observable<User> = this._userDataService.getUser$("robbedec");
-  constructor(private _userDataService: UserDataService) {
-    //this._fetchUser$ = this._userDataService.getUser$("robbedec");
+  private _fetchUser$: Observable<User> = this._userDataService.getUser$(this.route.snapshot.params["username"]);
+  constructor(private _userDataService: UserDataService, private route: ActivatedRoute) {
   }
 
   get user$(): Observable<User> {

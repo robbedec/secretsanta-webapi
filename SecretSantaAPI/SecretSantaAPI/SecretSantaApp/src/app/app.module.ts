@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { MaterialModule } from './material/material.module';
 import { ProfileModule } from './profile/profile.module';
+import { UserModule } from './user/user.module';
 
 
 
@@ -25,7 +26,8 @@ import { ProfileModule } from './profile/profile.module';
     MaterialModule,
     DashboardModule,
     ProfileModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UserModule
 
   ],
   providers: [],
