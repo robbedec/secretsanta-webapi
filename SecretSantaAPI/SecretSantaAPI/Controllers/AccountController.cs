@@ -102,5 +102,13 @@ namespace SecretSantaAPI.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        [AllowAnonymous]
+        [HttpGet("checkusername")]
+        public async Task<ActionResult<Boolean>> CheckAvailableUserName(string email)
+        {
+            var user = await _userManager.FindByNameAsync(email);
+            return user == null;
+        }
     }
 }

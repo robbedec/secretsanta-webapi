@@ -11,6 +11,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { MaterialModule } from './material/material.module';
 import { ProfileModule } from './profile/profile.module';
 import { UserModule } from './user/user.module';
+import { httpInterceptorProviders } from './interceptors'
 
 
 
@@ -30,7 +31,7 @@ import { UserModule } from './user/user.module';
     UserModule
 
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

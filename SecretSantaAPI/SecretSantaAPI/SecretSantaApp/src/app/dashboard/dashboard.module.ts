@@ -28,6 +28,7 @@ import { ProfileModule } from '../profile/profile.module';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ProfileModule
   ],
 })
 export class DashboardModule { }

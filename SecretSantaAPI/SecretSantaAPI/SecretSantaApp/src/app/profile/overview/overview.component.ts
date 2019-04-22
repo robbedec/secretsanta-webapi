@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../user.model';
-import { Present } from 'src/app/dashboard/present.model';
+import { Present } from '../../dashboard/present.model';
 
 @Component({
   selector: 'app-overview',
