@@ -1,11 +1,17 @@
 import { Present } from "./present.model";
 
 export class Wishlist {
+    private _id: number;
+
     constructor(
         private _ownerName: string,
         private _presents = new Array<Present>(),
         private _dateAdded = new Date()
     ) {}
+
+    get id(): number {
+        return this._id;
+    }
 
     get ownerName(): string {
         return this._ownerName;
@@ -26,5 +32,14 @@ export class Wishlist {
     static fromJSON(json: any): Wishlist {
         const rec = new Wishlist(json.ownerName, json.presents.map(Present.fromJSON), json.dateAdded);
         return rec;
+    }
+
+    toJSON(): any {
+        return {
+            id: this._id,
+            ownerName: this._ownerName,
+            dateAdded: this._dateAdded,
+            presents: this.presents.map(ing => ing.toJSON())
+        };
     }
 }

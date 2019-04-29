@@ -17,4 +17,8 @@ export class Present {
     get category(){
         return this._category;
     }
+
+    toJSON(): any {
+        return {name: this._name, price: this._price, category: this._category};
+    }
 }

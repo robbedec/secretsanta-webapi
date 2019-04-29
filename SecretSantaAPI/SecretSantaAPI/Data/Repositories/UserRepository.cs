@@ -25,12 +25,12 @@ namespace SecretSantaAPI.Data.Repositories
 
         public ApplicationUser GetBy(string email)
         {
-            return _users.Include(b => b.Wishlist).ThenInclude(b => b.Presents).SingleOrDefault(b => b.Email == email);
+            return _users.Include(b => b.Wishlist).ThenInclude(b => b.Presents).Include(b => b.Group).ThenInclude(b => b.Members).SingleOrDefault(b => b.Email == email);
         }
 
         public ApplicationUser GetByUsername(string username)
         {
-            return _users.Include(b => b.Wishlist).ThenInclude(b => b.Presents).SingleOrDefault(b => b.Username == username);   
+            return _users.Include(b => b.Wishlist).ThenInclude(b => b.Presents).Include(b => b.Group).ThenInclude(b => b.Members).SingleOrDefault(b => b.Username == username);   
         }
 
         public void SaveChanges()

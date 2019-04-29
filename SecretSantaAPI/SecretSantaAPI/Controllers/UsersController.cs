@@ -21,7 +21,7 @@ namespace SecretSantaAPI.Controllers
         }
 
         [HttpGet("{username}")]
-        public ActionResult<ApplicationUser> GetWishlist(string username)
+        public ActionResult<ApplicationUser> GetUser(string username)
         {
             ApplicationUser user = _userRepository.GetByUsername(username);
             if (user == null)
@@ -34,8 +34,8 @@ namespace SecretSantaAPI.Controllers
         [HttpGet("CurrentUser")]
         public ApplicationUser GetCurrentUser()
         {
-            //return _userRepository.GetBy(User.Identity.Name);
-			return _userRepository.GetBy("robbe.decorte@student.hogent.be");
+            return _userRepository.GetBy(User.Identity.Name);
+			//return _userRepository.GetBy("robbe.decorte@student.hogent.be");
         }
     }
 }

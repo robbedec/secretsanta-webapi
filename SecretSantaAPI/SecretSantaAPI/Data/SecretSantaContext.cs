@@ -30,11 +30,20 @@ namespace SecretSantaAPI.Data
             builder.Entity<Present>().Property(b => b.Price).IsRequired().HasMaxLength(10);
             builder.Entity<Present>().Property(b => b.Category);
 
+            builder.Entity<Group>()
+                .HasMany(b => b.Members)
+                .WithOne()
+                .HasForeignKey("GroupId");
+            builder.Entity<Group>().Property(b => b.GroupName).IsRequired().HasMaxLength(50);
+
             builder.Entity<ApplicationUser>().Property(c => c.LastName).IsRequired().HasMaxLength(50);
             builder.Entity<ApplicationUser>().Property(c => c.FirstName).IsRequired().HasMaxLength(50);
             builder.Entity<ApplicationUser>().Property(c => c.Email).IsRequired().HasMaxLength(100);
+            //builder.Entity<ApplicationUser>().HasOne(b => b.Group).WithMany().HasForeignKey("GroupId");
 
             builder.Entity<Wishlist>().HasData(new Wishlist { Id = 1, OwnerName = "Robbe", Created = DateTime.Now });
+
+            builder.Entity<Group>().HasData(new { Id = 1, GroupName = "Familie Decorte"});
 
             builder.Entity<Present>().HasData(
                     new { Id = 1, Name = "laptop", Price = (double)2000, Category = Category.sports, WishlistId = 1 },
@@ -45,6 +54,7 @@ namespace SecretSantaAPI.Data
         }
 
         public DbSet<Wishlist> Wishlists { get; set; }
-        public DbSet<ApplicationUser> Users { get; set; }
+        public new DbSet<ApplicationUser> Users { get; set; }
+        public DbSet<Group> Groups { get; set; }
     }
 }

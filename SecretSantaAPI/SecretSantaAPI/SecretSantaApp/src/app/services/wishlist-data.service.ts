@@ -14,4 +14,8 @@ export class WishlistDataService {
   get wishlist$(): Observable<Wishlist> {
     return this.http.get(`${environment.apiUrl}/wishlists`).pipe(map(Wishlist.fromJSON));
   }
+
+  updateWishlist(wishlist: Wishlist) {
+    return this.http.put(`${environment.apiUrl}/wishlists/${wishlist.id}`, wishlist.toJSON()).pipe()
+  }
 }

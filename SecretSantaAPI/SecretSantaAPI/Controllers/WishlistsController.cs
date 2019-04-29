@@ -81,8 +81,16 @@ namespace SecretSantaAPI.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult<Wishlist> Delete(int id)
         {
+            Wishlist wishlist = _wishlistRepository.GetBy(id);
+            if(wishlist == null)
+            {
+                return NotFound();
+            }
+            _wishlistRepository.Delete(wishlist);
+            _wishlistRepository.SaveChanges();
+            return wishlist;
         }
     }
 }

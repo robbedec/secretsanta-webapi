@@ -29,13 +29,24 @@ namespace SecretSantaAPI.Data
                     Username = "robbedec",
                     FirstName = "Robbe",
                     LastName = "Decorte",
-                    AvatarUrl = "https://avatars1.githubusercontent.com/u/21178642?v=4"
+                    AvatarUrl = "https://avatars1.githubusercontent.com/u/21178642?v=4",
                 };
                 robbedec.Wishlist = _dbContext.Wishlists.First();
+                robbedec.Group = _dbContext.Groups.First();
+                
                 await CreateUser(robbedec.Email, "P@ssword1");
 
                 ApplicationUser webiv = new ApplicationUser { Email = "webiv", FirstName = "webiv", LastName = "les" };
+                webiv.Group = _dbContext.Groups.First();
                 await CreateUser(webiv.Email, "gelukkiggeennetbeans");
+
+                ApplicationUser jan = new ApplicationUser { Email = "jan.mieke@telenet.be", FirstName = "Jan", LastName = "Decorte" };
+                jan.Group = _dbContext.Groups.First();
+                await CreateUser(jan.Email, "gelukkiggeennetbeans");
+                
+                _dbContext.Groups.First().Members.Add(webiv);
+                _dbContext.Groups.First().Members.Add(robbedec);
+                _dbContext.Groups.First().Members.Add(jan);
 
                 _dbContext.Users.AddRange(robbedec, webiv);
                 _dbContext.SaveChanges();
