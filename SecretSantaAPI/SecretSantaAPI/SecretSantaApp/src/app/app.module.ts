@@ -13,8 +13,14 @@ import { MaterialModule } from './material/material.module';
 //import { ProfileModule } from './profile/profile.module';
 import { UserModule } from './user/user.module';
 import { httpInterceptorProviders } from './interceptors'
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
+import { HttpClientModule, HttpClient } from '@angular/common/http'
+import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 
-
+export const createTranslateLoader = (http: HttpClient) => {
+  //return new TranslateHttpLoader(http, '')
+  return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
+}
 
 
 @NgModule({
@@ -31,10 +37,16 @@ import { httpInterceptorProviders } from './interceptors'
     LayoutModule,
     DashboardModule,
     //ProfileModule,
-    AppRoutingModule
-    
-
+    AppRoutingModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
+  exports: [TranslateModule],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })

@@ -23,7 +23,20 @@
       </span>
       <a class="topnav-icon" [routerLink]="['user']"><mat-icon>account_circle</mat-icon></a>
       <a class="topnav-icon"><mat-icon>mail_outline</mat-icon></a>
-      <a class="topnav-icon"><mat-icon>language</mat-icon></a>
+      <button mat-icon-button class="topnav-icon" [matMenuTriggerFor]="language"><mat-icon>language</mat-icon></button>
+
+      <mat-menu #language="matMenu">
+        <button mat-menu-item (click)="changeLang('en')">
+          <span>{{ 'English' | translate }}</span>
+        </button>
+        <button mat-menu-item (click)="changeLang('nl')">
+          <span>{{ 'Dutch' }}</span>
+        </button>
+        <button mat-menu-item (click)="changeLang('en')">
+          <span>{{ 'French'  }}</span>
+        </button>
+      </mat-menu>
+
       <a (click)="logout()" class="topnav-icon" [routerLink]="['/login']">
         <mat-icon>exit_to_app</mat-icon>
       </a>

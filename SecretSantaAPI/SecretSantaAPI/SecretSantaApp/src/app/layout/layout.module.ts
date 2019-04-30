@@ -5,13 +5,15 @@ import { MaterialModule } from '../material/material.module'
 import { AppRoutingModule } from '../app-routing.module';
 import { MainNavComponent} from './main-nav/main-nav.component';
 import { LayoutRoutingModule } from './layout-routing.module'
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [LayoutComponent, MainNavComponent],
   imports: [
     CommonModule,
     MaterialModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    TranslateModule
   ]
 })
 export class LayoutModule { }

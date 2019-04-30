@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthenticationService } from '../../user/authentication.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-main-nav',
@@ -13,9 +14,13 @@ export class MainNavComponent {
   loggedInUser$ = this._authenticationService.user$;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(map(result => result.matches));
 
-  constructor(private breakpointObserver: BreakpointObserver, private _authenticationService: AuthenticationService) {}
+  constructor(private breakpointObserver: BreakpointObserver, private _authenticationService: AuthenticationService, private translate: TranslateService) {}
 
   logout() {
     this._authenticationService.logout();
+  }
+
+  changeLang(language: string) {
+    this.translate.use(language);
   }
 }
