@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Wishlist } from '../dashboard/wishlist.model';
+import { Wishlist } from '../../layout/dashboard/wishlist.model';
 import { HttpClient } from '@angular/common/http'
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { Observable, Subject} from 'rxjs'
 import { map, catchError, tap } from 'rxjs/operators'
 

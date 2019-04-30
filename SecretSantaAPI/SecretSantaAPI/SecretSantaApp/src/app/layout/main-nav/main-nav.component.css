@@ -3,7 +3,8 @@
 }
 
 .sidenav {
-  width: 200px;
+  width: 250px;
+  box-shadow: 3px 0 6px rgba(0,0,0,0.24);
 }
 
 .sidenav .mat-toolbar {
@@ -19,3 +20,12 @@
 .fill-space {
   flex: 1 1 auto;
 }
+
+.topnav-icon {
+  text-decoration: none;
+  display: flex;
+  color: #fff;
+  padding: 0 10px;
+}
+
+

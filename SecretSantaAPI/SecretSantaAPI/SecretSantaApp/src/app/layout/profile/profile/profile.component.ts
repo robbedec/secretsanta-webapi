@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserDataService } from '../../services/user-data.service';
+import { UserDataService } from '../../../shared/services/user-data.service';
 import { Observable } from 'rxjs';
 import { User } from '../user.model'
 import { async } from 'q';

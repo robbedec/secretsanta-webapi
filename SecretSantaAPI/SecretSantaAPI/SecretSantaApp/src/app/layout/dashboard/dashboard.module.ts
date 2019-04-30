@@ -7,11 +7,13 @@ import { PresentFilterPipe } from './present-filter.pipe';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { PresentComponent } from './present/present.component';
 import { AddPresentComponent } from './add-present/add-present.component';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '../../material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './dashboard.component';
 import { ProfileModule } from '../profile/profile.module';
+import { DashboardRoutingModule } from './dashboard-routing.module';
+import { StatModule } from '../../shared/modules/stat/stat.module'
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ProfileModule } from '../profile/profile.module';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ProfileModule
+    ProfileModule,
+    DashboardRoutingModule,
+    StatModule
   ],
 })
 export class DashboardModule { }

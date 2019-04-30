@@ -6,8 +6,9 @@ import { HttpClientModule } from '@angular/common/http'
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserRoutingModule } from './user-routing.module';
 
-const routes: Routes = [{ path: 'login', component: LoginComponent}];
+//const routes: Routes = [{ path: 'login', component: LoginComponent}];
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
@@ -16,7 +17,9 @@ const routes: Routes = [{ path: 'login', component: LoginComponent}];
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forChild(routes)
+    UserRoutingModule,
+    //RouterModule.forChild(routes)
   ]
+ // exports: [RouterModule]
 })
 export class UserModule { }

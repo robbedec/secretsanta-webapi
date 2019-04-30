@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         val => {
           if (val) {
+            localStorage.setItem('isLoggedIn', 'true');
             if (this.authService.redirectUrl) {
               this.router.navigateByUrl(this.authService.redirectUrl);
               this.authService.redirectUrl = undefined;

@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, Router } from '@angular/router';
+import { RouterModule, Routes, Router, PreloadAllModules } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
-import { ProfileComponent } from './profile/profile/profile.component';
+//import { ProfileComponent } from './profile/profile/profile.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component'
 import { AuthGuard } from './user/auth.guard';
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [ AuthGuard ] },
-  { path: ':username', component: ProfileComponent},
-  { path: '', component: DashboardComponent, canActivate: [ AuthGuard ] },
-  { path: '**', component: PageNotFoundComponent}
+  //{ path: 'dashboard', loadChildren: './layout/layout.module#LayoutModule', canActivate: [ AuthGuard ] },
+  //{ path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule', canActivate: [ AuthGuard ] },
+  { path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [ AuthGuard ] },
+  { path: 'login', loadChildren: './user/user.module#UserModule' },
+ // { path: 'register', loadChildren: './user/user.module#RegisterModule' }
+  //s{ path: ':username', loadChildren: './profile/profile.module#ProfileModule'},
+  
+  /*{ path: '**', loadChildren: './page-not-found/'}*/
   
 ];
 
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
   ],
   exports: [
     RouterModule
-  ]
+  ],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }
