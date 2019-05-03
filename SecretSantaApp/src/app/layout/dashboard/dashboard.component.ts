@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {WishlistDataService } from '../../shared/services/wishlist-data.service';
+import { WishlistDataService } from '../../shared/services/wishlist-data.service';
+import { GroupDataService } from '../../shared/services/group-data.service';
 import { Observable, Subject } from 'rxjs';
 import { Wishlist } from './wishlist.model'
+import { Group } from './group.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,10 +13,15 @@ import { Wishlist } from './wishlist.model'
 export class DashboardComponent implements OnInit {
 
   private _fetchWishlist$: Observable<Wishlist> = this._wishlistDataService.wishlist$;
-  constructor(private _wishlistDataService: WishlistDataService) {}
+  private _fetchCurrentUserGroup$: Observable<Group> = this._groupDataService.currentUserGroup$;
+  constructor(private _wishlistDataService: WishlistDataService, private _groupDataService: GroupDataService) {}
 
   get wishlist$(): Observable<Wishlist> {
     return this._fetchWishlist$;
+  }
+
+  get currentUserGroup$() {
+    return this._fetchCurrentUserGroup$;
   }
 
   ngOnInit() {}

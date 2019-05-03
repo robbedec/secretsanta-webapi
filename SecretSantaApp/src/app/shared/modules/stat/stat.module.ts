@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StatComponent } from './stat.component';
 import { MatCardModule, MatGridListModule, MatIconModule } from '@angular/material'; 
+import { TranslateModule } from '@ngx-translate/core';
  
 @NgModule({
   declarations: [StatComponent],
@@ -10,7 +11,8 @@ import { MatCardModule, MatGridListModule, MatIconModule } from '@angular/materi
     CommonModule,
     MatCardModule,
     MatGridListModule,
-    MatIconModule
+    MatIconModule,
+    TranslateModule
   ]
 })
 export class StatModule { }

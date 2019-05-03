@@ -14,6 +14,8 @@ import { DashboardComponent } from './dashboard.component';
 import { ProfileModule } from '../profile/profile.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { StatModule } from '../../shared/modules/stat/stat.module'
+import { TranslateModule } from '@ngx-translate/core';
+import { GroupComponent } from './group/group.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { StatModule } from '../../shared/modules/stat/stat.module'
     FilterPresentComponent,
     EditPresentComponent,
     DashboardComponent,
+    GroupComponent,
   ],
   imports: [
     CommonModule,
@@ -32,7 +35,8 @@ import { StatModule } from '../../shared/modules/stat/stat.module'
     ReactiveFormsModule,
     ProfileModule,
     DashboardRoutingModule,
-    StatModule
+    StatModule,
+    TranslateModule
   ],
 })
 export class DashboardModule { }

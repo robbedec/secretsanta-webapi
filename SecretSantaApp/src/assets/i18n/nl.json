@@ -1,3 +1,18 @@
 {
-	"English": "Engels"
+	"English": "Engels",
+	"Dutch": "Nederlands",
+	"French": "Frans",
+	"Wishlist for": "Wenslijst voor",
+	"added on": "toegevoegd op",
+	"New present": "Nieuw cadeau",
+	"Description": "Een nieuw cadeau toevoegen",
+	"name": "naam",
+	"price": "prijs",
+	"category": "categorie",
+	"Filter presents": "Filter cadeaus",
+	"add present": "cadeau toevoegen",
+	"clear": "reset",
+	"View Details": "Bekijk details",
+	"Group": "Groep"
+	
 }

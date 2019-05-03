@@ -1,3 +1,17 @@
 {
-	"English": "English"
+	"English": "English",
+	"Dutch": "Dutch",
+	"French": "French",
+	"Wishlist for": "Wishlist for",
+	"added on": "added on",
+	"New present": "New present",
+	"Description": "Add a new present to your wishlist",
+	"name": "name",
+	"price": "price",
+	"category": "category",
+	"Filter presents": "Filter presents",
+	"add present": "add present",
+	"clear": "clear",
+	"View Details": "View Details",
+	"Group": "Group"
 }

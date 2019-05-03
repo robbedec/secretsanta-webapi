@@ -1,5 +1,5 @@
 <div fxLayout="column">
-  <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px" style="margin: 20px">
+  <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px" style="margin:20px 0.5% 20px 20px">
       <div fxFlex>
           <app-stat [bgClass]="'danger'" [icon]="'dashboard'" [count]="13" [label]="'New Tickets!'"></app-stat>
       </div>
@@ -15,8 +15,11 @@
   </div>
 
   <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="0.5%" fxLayoutAlign="start" style="margin-left:20px">
-    <div class="wishlist" fxFlex="0 0 calc(40%-0.5%)" fxLayout="column" fxFlex.xs="100%">
+    <div class="wishlist" fxFlex="0 0 calc(50%-0.5%)" fxLayout="column" fxFlex.xs="100%">
       <app-wishlist [wishlist]="(wishlist$ | async)"></app-wishlist>
+    </div>
+    <div fxFlex="0 0 calc(50%-0.5%)" fxLayout="column" fxFlex.xs="100%">
+      <app-group [group]="(currentUserGroup$ | async)"></app-group>
     </div>
   </div>
 </div>

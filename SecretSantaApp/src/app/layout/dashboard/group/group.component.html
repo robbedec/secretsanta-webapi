@@ -1,0 +1,11 @@
+<mat-card>
+  <mat-card-header>
+      <mat-card-title>{{ 'Group' | translate }} {{ group.groupName }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content fxLayout="row wrap" fxLayoutGap="5%">
+    <mat-card-title fxLayout="column" fxFlex="20" *ngFor="let member of group.members">
+      <img style="width:100%;margin:0;margin-bottom:15px;border-radius:5px" src="{{member.avatarUrl}}"/>
+      <mat-card-subtitle style="text-align:center;font-weight: bold">{{ member.username }}</mat-card-subtitle>
+    </mat-card-title>
+  </mat-card-content>
+</mat-card>

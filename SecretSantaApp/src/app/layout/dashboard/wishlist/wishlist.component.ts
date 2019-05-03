@@ -24,7 +24,6 @@ export class WishlistComponent implements OnInit {
     .subscribe(val => (this.filterPresentName = val));
   }
 
-
   ngOnInit() {
   }
 
