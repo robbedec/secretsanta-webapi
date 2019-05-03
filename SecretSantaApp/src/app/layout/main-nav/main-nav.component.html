@@ -16,12 +16,12 @@
         (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <a style="color:inherit;text-decoration:none" [routerLink]="['']"><span>Secret santa</span></a>
+      <a style="color:inherit;text-decoration:none" [routerLink]="['/dashboard']"><span>Secret santa</span></a>
       <span class="fill-space"></span>
-      <span *ngIf="(loggedInUser$ | async) as user">{{ user }} 
+      <span *ngIf="(loggedInUser$ | async)?.username as user">{{ user }} 
           
       </span>
-      <a class="topnav-icon" [routerLink]="['user']"><mat-icon>account_circle</mat-icon></a>
+      <a class="topnav-icon" [routerLink]="['user.username']"><mat-icon>account_circle</mat-icon></a>
       <a class="topnav-icon"><mat-icon>group</mat-icon></a>
       <a class="topnav-icon"><mat-icon>mail_outline</mat-icon></a>
       <button mat-icon-button class="topnav-icon" [matMenuTriggerFor]="language"><mat-icon>language</mat-icon></button>
@@ -41,7 +41,6 @@
       <a (click)="logout()" class="topnav-icon" [routerLink]="['/login']">
         <mat-icon>exit_to_app</mat-icon>
       </a>
-      
     </mat-toolbar>
     <ng-content></ng-content>
   </mat-sidenav-content>

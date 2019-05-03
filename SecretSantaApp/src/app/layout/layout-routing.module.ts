@@ -16,11 +16,11 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: './dashboard/dashboard.module#DashboardModule'
-      }/*,
+      },
       {
         path: ':username',
-        loadChildren: './profile/profile.module#ProfileModule'
-      }*/
+        component: ProfileComponent
+      }
     ]
   }
 ];

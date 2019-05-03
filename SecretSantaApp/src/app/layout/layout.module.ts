@@ -6,6 +6,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { MainNavComponent} from './main-nav/main-nav.component';
 import { LayoutRoutingModule } from './layout-routing.module'
 import { TranslateModule } from '@ngx-translate/core';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [LayoutComponent, MainNavComponent],
@@ -13,7 +14,8 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     MaterialModule,
     LayoutRoutingModule,
-    TranslateModule
+    TranslateModule,
+    ProfileModule
   ]
 })
 export class LayoutModule { }
