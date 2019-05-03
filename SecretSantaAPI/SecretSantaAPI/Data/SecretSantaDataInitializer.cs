@@ -36,19 +36,31 @@ namespace SecretSantaAPI.Data
                 
                 await CreateUser(robbedec.Email, "P@ssword1");
 
-                ApplicationUser webiv = new ApplicationUser { Email = "webiv", FirstName = "webiv", LastName = "les" };
+                ApplicationUser webiv = new ApplicationUser { Username = "webiv", Email = "webiv", FirstName = "webiv", LastName = "les" };
                 webiv.Group = _dbContext.Groups.First();
                 await CreateUser(webiv.Email, "gelukkiggeennetbeans");
 
-                ApplicationUser jan = new ApplicationUser { Email = "jan.mieke@telenet.be", FirstName = "Jan", LastName = "Decorte" };
+                ApplicationUser jan = new ApplicationUser { Username = "jandec", Email = "jan.mieke@telenet.be", FirstName = "Jan", LastName = "Decorte" };
                 jan.Group = _dbContext.Groups.First();
                 await CreateUser(jan.Email, "gelukkiggeennetbeans");
-                
+
+                ApplicationUser stan = new ApplicationUser { Username = "standec", Email = "stan.decorte@telenet.be", FirstName = "Stan", LastName = "Decorte" };
+                stan.Group = _dbContext.Groups.First();
+                await CreateUser(jan.Email, "gelukkiggeennetbeans");
+
+                ApplicationUser rune = new ApplicationUser { Username = "runedec", Email = "rune.decorte@telenet.be", FirstName = "Rune", LastName = "Decorte" };
+                rune.Group = _dbContext.Groups.First();
+                await CreateUser(jan.Email, "gelukkiggeennetbeans");
+
+
+
                 _dbContext.Groups.First().Members.Add(webiv);
                 _dbContext.Groups.First().Members.Add(robbedec);
                 _dbContext.Groups.First().Members.Add(jan);
+                _dbContext.Groups.First().Members.Add(stan);
+                _dbContext.Groups.First().Members.Add(rune);
 
-                _dbContext.Users.AddRange(robbedec, webiv);
+                _dbContext.Users.AddRange(robbedec, webiv, jan, stan, rune);
                 _dbContext.SaveChanges();
             }
         }
