@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { environment } from '../../../environments/environment';
 import { Observable, Subject} from 'rxjs'
 import { map, catchError, tap } from 'rxjs/operators'
+import { Present } from '../../layout/dashboard/present.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,10 @@ export class WishlistDataService {
 
   updateWishlist(wishlist: Wishlist) {
     return this.http.put(`${environment.apiUrl}/wishlists/${wishlist.id}`, wishlist.toJSON()).pipe()
+  }
+
+  addPresent(wishlistId: number, present: Present) {
+    
+    return this.http.post(`${environment.apiUrl}/Presents/${wishlistId}`, present.toJSON()).pipe();
   }
 }

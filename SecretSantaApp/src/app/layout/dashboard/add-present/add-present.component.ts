@@ -23,6 +23,6 @@ export class AddPresentComponent implements OnInit {
   }
 
   onSubmit(){
-    this.newPresent.emit(new Present(this.present.value.name, this.present.value.price, this.present.value.category));
+    this.newPresent.emit(new Present(this.present.value.name, this.present.value.price, 0));
   }
 }

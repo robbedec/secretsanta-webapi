@@ -1,9 +1,18 @@
 export class Present {
+    private _id: number;
     constructor(private _name, private _price: number, private _category) {}
 
     static fromJSON(json: any): Present {
         const ing = new Present(json.name, json.price, json.category);
+        ing._id = json.id;
         return ing;
+    }
+    set id(id: number) {
+        this._id = id;
+    }
+
+    get id() {
+        return this._id;
     }
 
     get name(){
