@@ -45,17 +45,17 @@ namespace SecretSantaAPI.Data
                 await CreateUser(jan.Email, "gelukkiggeennetbeans");
 
                 ApplicationUser mieke = new ApplicationUser { Username = "miestu", Email = "mieke.jan@telenet.be", FirstName = "Mieke", LastName = "Stubbe", AvatarUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t1.0-9/12963634_1002897793119199_4188946336257922061_n.jpg?_nc_cat=108&_nc_ht=scontent-bru2-1.xx&oh=c5822f210c0e6239d1a940a12b939d19&oe=5D7119CF" };
-                jan.Group = _dbContext.Groups.First();
-                await CreateUser(jan.Email, "gelukkiggeennetbeans");
+                mieke.Group = _dbContext.Groups.First();
+                await CreateUser(mieke.Email, "P@ssword1");
 
 
                 ApplicationUser stan = new ApplicationUser { Username = "standec", Email = "stan.decorte@telenet.be", FirstName = "Stan", LastName = "Decorte", AvatarUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t31.0-1/c379.0.1290.1290a/10506738_10150004552801856_220367501106153455_o.jpg?_nc_cat=1&_nc_ht=scontent-bru2-1.xx&oh=6791e9ef14a487bafbc2fab2b406c553&oe=5D5FE949" };
                 stan.Group = _dbContext.Groups.First();
-                await CreateUser(jan.Email, "gelukkiggeennetbeans");
+                await CreateUser(stan.Email, "P@ssword1");
 
                 ApplicationUser rune = new ApplicationUser { Username = "runedec", Email = "rune.decorte@telenet.be", FirstName = "Rune", LastName = "Decorte", AvatarUrl = "https://scontent-bru2-1.xx.fbcdn.net/v/t1.0-9/49828797_614041942360435_7312430268118204416_n.jpg?_nc_cat=104&_nc_ht=scontent-bru2-1.xx&oh=41192b48d8029b905fe305f8e6646f04&oe=5D6C77CF" };
                 rune.Group = _dbContext.Groups.First();
-                await CreateUser(jan.Email, "gelukkiggeennetbeans");
+                await CreateUser(rune.Email, "gelukkiggeennetbeans");
 
 
 

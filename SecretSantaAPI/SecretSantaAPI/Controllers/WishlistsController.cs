@@ -34,10 +34,7 @@ namespace SecretSantaAPI.Controllers
         [HttpGet]
         public Wishlist GetWishlist()
         {
-            //return _wishlistRepository.GetAll().OrderBy(b => b.OwnerName);
-            ///Customer customer = _customerRepository.GetBy(User.Identity.Name);
-            ApplicationUser user = _customerRepository.GetBy("robbe.decorte@student.hogent.be");
-            return user.Wishlist;
+            return _customerRepository.GetBy(User.Identity.Name).Wishlist;
         }
 
         // GET: api/Wishlist/5
