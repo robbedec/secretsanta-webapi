@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Wishlist } from '../wishlist.model';
 import { Present } from '../present.model';
-import { Subject } from 'rxjs'
+import { Subject } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
-import {WishlistDataService } from '../../../shared/services/wishlist-data.service';
+import { WishlistDataService } from '../../../shared/services/wishlist-data.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -18,23 +18,26 @@ export class WishlistComponent implements OnInit {
 
   constructor(private _dataService: WishlistDataService) {
     this.filterPresentName$
-    .pipe(
-      distinctUntilChanged(),
-      map(val => val.toLowerCase())
-    )
-    .subscribe(val => (this.filterPresentName = val));
+      .pipe(
+        distinctUntilChanged(),
+        map(val => val.toLowerCase())
+      )
+      .subscribe(val => (this.filterPresentName = val));
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  addPresent(present: Present){
-
+  addPresent(present: Present) {
     this.wishlist.addPresent(present);
     this._dataService.addPresent(this.wishlist.id, present).subscribe();
   }
 
-  applyFilter(filter: string){
+  removePresent(present: Present) {
+    this.wishlist.removePresent(present);
+    this._dataService.removePresent(present.id).subscribe();
+  }
+
+  applyFilter(filter: string) {
     this.filterPresentName = filter;
   }
 }

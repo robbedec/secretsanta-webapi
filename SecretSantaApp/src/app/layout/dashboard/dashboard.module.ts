@@ -13,9 +13,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard.component';
 import { ProfileModule } from '../profile/profile.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { StatModule } from '../../shared/modules/stat/stat.module'
+import { StatModule } from '../../shared/modules/stat/stat.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { GroupComponent } from './group/group.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { GroupComponent } from './group/group.component';
     FilterPresentComponent,
     EditPresentComponent,
     DashboardComponent,
-    GroupComponent,
+    GroupComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +37,8 @@ import { GroupComponent } from './group/group.component';
     ProfileModule,
     DashboardRoutingModule,
     StatModule,
-    TranslateModule
-  ],
+    TranslateModule,
+    FormsModule
+  ]
 })
-export class DashboardModule { }
+export class DashboardModule {}

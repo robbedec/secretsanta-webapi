@@ -19,7 +19,7 @@
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-           {{ 'Filter presents' | translate }}
+            {{ 'Filter presents' | translate }}
           </mat-expansion-panel-header>
           <app-filter-present (newFilter)="filterPresentName$.next($event)"></app-filter-present>
         </mat-expansion-panel>
@@ -27,7 +27,8 @@
     </div>
     <mat-list fxFlexFill fxLayout="column">
       <mat-list-item *ngFor="let present of (wishlist.presents | presentFilter: filterPresentName)">
-        <app-present fxFlexFill fxLayoutAlign="center center" [present]="present"></app-present>
+        <app-present fxFlexFill fxLayoutAlign="center center" [present]="present"
+          (presentAction)="removePresent($event)"></app-present>
       </mat-list-item>
     </mat-list>
   </mat-card-content>

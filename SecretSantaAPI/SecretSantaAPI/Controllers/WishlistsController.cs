@@ -89,5 +89,13 @@ namespace SecretSantaAPI.Controllers
             _wishlistRepository.SaveChanges();
             return wishlist;
         }
+
+        [HttpDelete("removepresent/{presentid}")]
+        public ActionResult<Present> RemovePresent(int presentId)
+        {
+            GetWishlist().RemovePresent(presentId);
+            _wishlistRepository.SaveChanges();
+            return Ok();
+        }
     }
 }

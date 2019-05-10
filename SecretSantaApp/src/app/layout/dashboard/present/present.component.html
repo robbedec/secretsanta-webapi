@@ -1,10 +1,10 @@
-<div fxFlex="60">{{ present.name }}</div>  
+<div fxFlex=" 60">{{ present.name }}</div>
 <div fxFlex="20">€{{ present.price }}</div>
 <div fxFlex="20">{{present.category}}</div>
 <button mat-icon-button>
-    <mat-icon>edit</mat-icon>
-</button>   
-<button mat-icon-button>
-    <mat-icon>delete_outline</mat-icon>
+  <mat-icon>edit</mat-icon>
+</button>
+<button mat-icon-button (click)="remove()">
+  <mat-icon>delete_outline</mat-icon>
 </button>
 <mat-divider></mat-divider>

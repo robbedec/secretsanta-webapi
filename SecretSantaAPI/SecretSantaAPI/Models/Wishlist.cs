@@ -19,6 +19,7 @@ namespace SecretSantaAPI.Models
         }
 
         public void AddPresent(Present present) => Presents.Add(present);
+        public void RemovePresent(int presentId) => Presents.Remove(Presents.FirstOrDefault(x => x.Id == presentId));
         public Present GetPresent(int id) => Presents.SingleOrDefault(b => b.Id == id);
     }
 }

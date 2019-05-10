@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { 
-  MatListModule, 
-  MatCardModule, 
-  MatIconModule, 
-  MatExpansionModule, 
-  MatFormFieldModule, 
-  MatInputModule, 
-  MatButtonModule, 
-  MatToolbarModule, 
-  MatSidenavModule, 
+import {
+  MatListModule,
+  MatCardModule,
+  MatIconModule,
+  MatExpansionModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+  MatToolbarModule,
+  MatSidenavModule,
   MatSelectModule,
   MatOptionModule,
   MatGridListModule,
@@ -17,7 +17,8 @@ import {
   MatTabsModule,
   MatDividerModule,
   MatTableModule,
-  MatMenuModule
+  MatMenuModule,
+  MatDialogModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -44,7 +45,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatTabsModule,
     MatDividerModule,
     MatTableModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   exports: [
     CommonModule,
@@ -66,7 +68,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatTabsModule,
     MatDividerModule,
     MatTableModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {}

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Present } from '../present.model';
 
 @Component({
@@ -8,9 +8,12 @@ import { Present } from '../present.model';
 })
 export class PresentComponent implements OnInit {
   @Input() present: Present;
-  constructor() { }
+  @Output() public presentAction = new EventEmitter<Present>();
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  remove() {
+    this.presentAction.emit(this.present);
   }
-
 }
