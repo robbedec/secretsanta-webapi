@@ -26,7 +26,7 @@ export class WishlistDataService {
 
   addPresent(wishlistId: number, present: Present) {
     return this.http
-      .post(`${environment.apiUrl}/Presents/${wishlistId}`, present.toJSON())
+      .post(`${environment.apiUrl}/wishlists/addpresent`, present.toJSON())
       .pipe();
   }
 

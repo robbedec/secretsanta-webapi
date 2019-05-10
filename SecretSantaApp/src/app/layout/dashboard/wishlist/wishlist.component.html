@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>{{ 'Wishlist for' | translate }} {{ wishlist.ownerName }}</mat-card-title>
-    <mat-card-subtitle>{{ 'added on' | translate }} {{ wishlist.dateAdded | date: longDate }}</mat-card-subtitle>
+    <mat-card-title>{{ 'Wishlist for' | translate }} {{ wishlist?.ownerName }}</mat-card-title>
+    <mat-card-subtitle>{{ 'added on' | translate }} {{ wishlist?.dateAdded | date: longDate }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content fxLayout="column">
     <div fxLayout="row">
@@ -26,7 +26,7 @@
       </mat-accordion>
     </div>
     <mat-list fxFlexFill fxLayout="column">
-      <mat-list-item *ngFor="let present of (wishlist.presents | presentFilter: filterPresentName)">
+      <mat-list-item *ngFor="let present of (wishlist?.presents | presentFilter: filterPresentName)">
         <app-present fxFlexFill fxLayoutAlign="center center" [present]="present"
           (presentAction)="removePresent($event)"></app-present>
       </mat-list-item>

@@ -11,6 +11,8 @@ export class PresentComponent implements OnInit {
   @Output() public presentAction = new EventEmitter<Present>();
   constructor() {}
 
+  public readonly categories = ['music', 'electronics', 'sports', 'outdoors'];
+
   ngOnInit() {}
 
   remove() {

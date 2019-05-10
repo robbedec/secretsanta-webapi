@@ -43,7 +43,6 @@ namespace SecretSantaAPI.Data
 
             builder.Entity<Wishlist>().HasData(new Wishlist { Id = 1, OwnerName = "Robbe", Created = DateTime.Now });
 
-            builder.Entity<Group>().HasData(new { Id = 1, GroupName = "Familie Decorte"});
 
             builder.Entity<Present>().HasData(
                     new { Id = 1, Name = "laptop", Price = (double)2000, Category = Category.sports, WishlistId = 1 },

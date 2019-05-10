@@ -25,7 +25,7 @@ namespace SecretSantaAPI.Data.Repositories
 
         public ApplicationUser GetBy(string email)
         {
-            return _users.Include(b => b.Wishlist).ThenInclude(b => b.Presents).Include(b => b.Group).ThenInclude(b => b.Members).SingleOrDefault(b => b.Email == email);
+            return _users.Include(b => b.Wishlist).ThenInclude(b => b.Presents).Include(b => b.Group).ThenInclude(b => b.Members).Include(b => b.Group).ThenInclude(b => b.Messages).SingleOrDefault(b => b.Email == email);
         }
 
         public ApplicationUser GetByUsername(string username)

@@ -26,15 +26,5 @@ namespace SecretSantaAPI.Controllers
             _customerRepository = customerRepository;
         }
 
-
-        [HttpPost("{id}")]
-        public ActionResult<Wishlist> PostPresent(int id ,PresentDTO present)
-        {
-            Present pr = new Present(present.Name, present.Price, present.Category);
-            _wishlistRepository.GetBy(id).AddPresent(pr);
-
-            _wishlistRepository.SaveChanges();
-            return Accepted();
-        }
     }
 }

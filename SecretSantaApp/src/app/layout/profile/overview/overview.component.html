@@ -2,7 +2,7 @@
   <mat-card-content>
     <div fxLayout="row" fxLayout.xs="column">
       <div fxLayout="column" fxFlex="20">
-        <img style="width:100%;margin:0;margin-bottom:15px;border-radius:5px" src="{{user.avatarUrl}}"/>
+        <img style="width:100%;margin:0;margin-bottom:15px;border-radius:5px" src="{{user.avatarUrl}}" />
         <mat-card-title>{{ user.name }}</mat-card-title>
         <mat-card-subtitle>{{ user.username }}</mat-card-subtitle>
         <mat-divider style="position:relative; margin-bottom:10px;"></mat-divider>
@@ -12,9 +12,9 @@
         <mat-tab-group fxFlex="80">
           <mat-tab label="Wishlist">
             <mat-list fxFlexFill fxLayout="column">
-              <mat-list-item *ngFor="let present of user.wishlist.presents">
-                <div fxFlexFill fxLayoutAlign="center center"> 
-                  <div fxFlex="60">{{ present.name }}</div>  
+              <mat-list-item *ngFor="let present of user.wishlist?.presents">
+                <div fxFlexFill fxLayoutAlign="center center">
+                  <div fxFlex="60">{{ present.name }}</div>
                   <div fxFlex="20">€{{ present.price }}</div>
                   <div fxFlex="20">{{present.category}}</div>
                   <mat-divider></mat-divider>

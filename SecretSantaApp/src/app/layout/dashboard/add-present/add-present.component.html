@@ -1,24 +1,27 @@
 <form [formGroup]="present" (ngSubmit)='onSubmit()' fxLayout="column">
   <mat-form-field>
-    <input matInput aria-label="name" placeholder="{{'name' | translate}}" type="text" formControlName="name" required/>
+    <input matInput aria-label="name" placeholder="{{'name' | translate}}" type="text" formControlName="name"
+      required />
     <!--<mat-error *ngIf="wishlist.get('name')['errors']?.required">is required</mat-error>-->
   </mat-form-field>
   <div fxLayout="row" fxLayoutGap="10px">
     <mat-form-field fxFlex="50">
-        <input matInput aria-label="price" placeholder="{{'price' | translate}}" [innerHTML]="'price' | translate" type="number" formControlName="price" required/>
-        <span matPrefix>€&nbsp;</span>
+      <input matInput aria-label="price" placeholder="{{'price' | translate}}" [innerHTML]="'price' | translate"
+        type="number" formControlName="price" required />
+      <span matPrefix>€&nbsp;</span>
     </mat-form-field>
     <mat-form-field fxFlex="50">
       <mat-select placeholder="{{'category' | translate}}">
-          <mat-option *ngFor="let category of categories" [value]="category">
-            {{category}}
-          </mat-option>
-        </mat-select>
+        <mat-option *ngFor="let category of categories" [value]="category">
+          {{category}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
     <br>
   </div>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
-    <button fxFlex="50" type="submit" mat-raised-button [disabled]="!present.valid">{{ 'add present' | translate }}</button>
-    <button fxFlex="20" mat-raised-button>{{ 'clear' | translate }}</button>
+    <button fxFlex="50" type="submit" mat-raised-button
+      [disabled]="!present.valid">{{ 'add present' | translate }}</button>
+    <a fxFlex="20" mat-raised-button (click)="resetForm()">{{ 'clear' | translate }}</a>
   </div>
 </form>

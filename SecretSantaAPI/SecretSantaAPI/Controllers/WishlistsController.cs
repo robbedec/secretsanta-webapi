@@ -90,6 +90,14 @@ namespace SecretSantaAPI.Controllers
             return wishlist;
         }
 
+        [HttpPost("addpresent")]
+        public ActionResult<Present> AddPresent(PresentDTO present)
+        {
+            GetWishlist().AddPresent(new Present(present.Name, present.Price, present.Category));
+            _wishlistRepository.SaveChanges();
+            return Ok();
+        }
+
         [HttpDelete("removepresent/{presentid}")]
         public ActionResult<Present> RemovePresent(int presentId)
         {
