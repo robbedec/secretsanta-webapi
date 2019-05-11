@@ -16,20 +16,27 @@ namespace SecretSantaAPI.Controllers
     [Route("api/[controller]")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
-    public class GroupController : ControllerBase
+    public class GroupsController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
+        private readonly IGroupRepository _groupRepository;
 
-        public GroupController(IUserRepository userRepository)
+        public GroupsController(IUserRepository userRepository, IGroupRepository groupRepository)
         {
             _userRepository = userRepository;
+            _groupRepository = groupRepository;
+        }
+
+        public ICollection<Group> GetGroups()
+        {
+            return _groupRepository.GetAll().ToList();
         }
 
         // GET: api/Group
         /// <summary>
         /// Get group from current user
         /// </summary>
-        /// <returns>groupa from logged in user</returns>
+        /// <returns>group from logged in user</returns>
         [HttpGet("CurrentUserGroup")]
         public ActionResult<Group> GetGroup()
         {
@@ -39,6 +46,23 @@ namespace SecretSantaAPI.Controllers
                 return NotFound();
             }
             return groep;   
+        }
+
+        [HttpPost("joingroup")]
+        public ActionResult<Group> JoinGroup(int groupId)
+        {
+            _groupRepository.GetById(groupId).AddUser(_userRepository.GetBy(User.Identity.Name));
+            _groupRepository.SaveChanges();
+            return Ok();
+        }
+
+        [HttpPost("leavegroup")]
+        public ActionResult<Group> LeaveGroup()
+        {
+            ApplicationUser user = _userRepository.GetBy(User.Identity.Name);
+            user.Group.RemoveUser(user);
+            _groupRepository.SaveChanges();
+            return Ok();
         }
     }
 }

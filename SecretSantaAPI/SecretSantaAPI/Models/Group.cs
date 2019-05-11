@@ -20,5 +20,8 @@ namespace SecretSantaAPI.Models
             Members = new List<ApplicationUser>();
             Messages = new List<Message>();
         }
+
+        public void AddUser(ApplicationUser user) => Members.Add(user);
+        public void RemoveUser(ApplicationUser user) => Members.Remove(user);
     }
 }

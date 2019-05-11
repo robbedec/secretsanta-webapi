@@ -14,6 +14,7 @@ namespace SecretSantaAPI.Models
 
         public Wishlist()
         {
+            OwnerName = "webiv";
             Presents = new List<Present>();
             Created = DateTime.Now;
         }

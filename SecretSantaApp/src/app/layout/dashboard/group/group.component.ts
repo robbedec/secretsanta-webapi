@@ -8,9 +8,8 @@ import { Group } from '../group.model';
 })
 export class GroupComponent implements OnInit {
   @Input() public group: Group;
-  constructor() { }
+  @Input() public groups: Group[];
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

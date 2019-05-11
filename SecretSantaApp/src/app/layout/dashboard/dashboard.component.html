@@ -1,17 +1,18 @@
 <div fxLayout="column">
-  <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px" style="margin:20px 0.5% 20px 20px">
-      <div fxFlex>
-          <app-stat [bgClass]="'danger'" [icon]="'dashboard'" [count]="13" [label]="'New Tickets!'"></app-stat>
-      </div>
-      <div fxFlex>
-          <app-stat [bgClass]="'warn'" [icon]="'mail_outline'" [count]="12" [label]="'Nieuwe meldingen!'"></app-stat>
-      </div>
-      <div fxFlex>
-          <app-stat [bgClass]="'success'" [icon]="'shopping_cart'" [count]="124" [label]="'Gekochte cadeaus!'"></app-stat>
-      </div>
-      <div fxFlex>
-          <app-stat [bgClass]="'info'" [icon]="'contact_support'" [count]="13" [label]="'New Tickets!'"></app-stat>
-      </div>
+  <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px"
+    style="margin:20px 0.5% 20px 20px">
+    <div fxFlex>
+      <app-stat [bgClass]="'danger'" [icon]="'dashboard'" [count]="13" [label]="'New Tickets!'"></app-stat>
+    </div>
+    <div fxFlex>
+      <app-stat [bgClass]="'warn'" [icon]="'mail_outline'" [count]="12" [label]="'Nieuwe meldingen!'"></app-stat>
+    </div>
+    <div fxFlex>
+      <app-stat [bgClass]="'success'" [icon]="'shopping_cart'" [count]="124" [label]="'Gekochte cadeaus!'"></app-stat>
+    </div>
+    <div fxFlex>
+      <app-stat [bgClass]="'info'" [icon]="'contact_support'" [count]="13" [label]="'New Tickets!'"></app-stat>
+    </div>
   </div>
 
   <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="0.5%" fxLayoutAlign="start" style="margin-left:20px">
@@ -19,7 +20,7 @@
       <app-wishlist [wishlist]="(wishlist$ | async)"></app-wishlist>
     </div>
     <div fxFlex="0 0 calc(50%-0.5%)" fxLayout="column" fxFlex.xs="100%">
-      <app-group [group]="(currentUserGroup$ | async)"></app-group>
+      <app-group [group]="(currentUserGroup$ | async)" [groups]="(groups$ | async)"></app-group>
     </div>
   </div>
 </div>

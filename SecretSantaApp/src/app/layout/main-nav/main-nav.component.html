@@ -1,5 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="true">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="true">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item [routerLink]="['robbedec']">profile</a>
@@ -9,22 +11,26 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <a style="color:inherit;text-decoration:none" [routerLink]="['/dashboard']"><span>Secret santa</span></a>
       <span class="fill-space"></span>
-      <span *ngIf="(loggedInUser$ | async)?.username as user">{{ user }} 
-          
+      <span *ngIf="(loggedInUser$ | async)?.username as user">{{ user }}
+
       </span>
-      <a class="topnav-icon" [routerLink]="['user.username']"><mat-icon>account_circle</mat-icon></a>
-      <a class="topnav-icon"><mat-icon>group</mat-icon></a>
-      <a class="topnav-icon"><mat-icon>mail_outline</mat-icon></a>
-      <button mat-icon-button class="topnav-icon" [matMenuTriggerFor]="language"><mat-icon>language</mat-icon></button>
+      <a class="topnav-icon" matTooltip="Mijn account" [routerLink]="['user.username']">
+        <mat-icon>account_circle</mat-icon>
+      </a>
+      <a class="topnav-icon" matTooltip="Groep verlaten">
+        <mat-icon>group</mat-icon>
+      </a>
+      <button class="topnav-icon" matTooltip="Berichten" (click)="leaveGroup()">
+        <mat-icon>mail_outline</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Taal veranderen" class="topnav-icon" [matMenuTriggerFor]="language">
+        <mat-icon>language</mat-icon>
+      </button>
 
       <mat-menu #language="matMenu">
         <button mat-menu-item (click)="changeLang('en')">
@@ -38,7 +44,7 @@
         </button>
       </mat-menu>
 
-      <a (click)="logout()" class="topnav-icon" [routerLink]="['/login']">
+      <a (click)="logout()" matTooltip="Uitloggen" class="topnav-icon" [routerLink]="['/login']">
         <mat-icon>exit_to_app</mat-icon>
       </a>
     </mat-toolbar>

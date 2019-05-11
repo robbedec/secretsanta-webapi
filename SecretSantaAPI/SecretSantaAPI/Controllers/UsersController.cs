@@ -35,7 +35,6 @@ namespace SecretSantaAPI.Controllers
         public ApplicationUser GetCurrentUser()
         {
             return _userRepository.GetBy(User.Identity.Name);
-			//return _userRepository.GetBy("robbe.decorte@student.hogent.be");
         }
     }
 }

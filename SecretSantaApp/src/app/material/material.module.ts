@@ -18,7 +18,8 @@ import {
   MatDividerModule,
   MatTableModule,
   MatMenuModule,
-  MatDialogModule
+  MatDialogModule,
+  MatTooltipModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -46,7 +47,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatDividerModule,
     MatTableModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   exports: [
     CommonModule,
@@ -69,7 +71,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatDividerModule,
     MatTableModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ]
 })
 export class MaterialModule {}

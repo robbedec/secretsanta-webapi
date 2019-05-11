@@ -42,6 +42,7 @@ namespace SecretSantaAPI
             services.AddScoped<SecretSantaDataInitializer>();
             services.AddScoped<IWishlistRepository, WishlistRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IGroupRepository, GroupRepository>();
 
             services.AddOpenApiDocument(c => 
             {
