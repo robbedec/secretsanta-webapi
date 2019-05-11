@@ -23,16 +23,19 @@ export class AuthenticationService {
 
   public redirectUrl: string;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     let parsedToken = parseJwt(localStorage.getItem(this._tokenKey));
-    if(parsedToken) {
-      const expires = new Date(parseInt(parsedToken.exp, 10) * 1000) < new Date();
-      if(expires) {
+    if (parsedToken) {
+      const expires =
+        new Date(parseInt(parsedToken.exp, 10) * 1000) < new Date();
+      if (expires) {
         localStorage.removeItem(this._tokenKey);
         parsedToken = null;
       }
     }
-    this._user$ = new BehaviorSubject<string>(parsedToken && parsedToken.unique_name);
+    this._user$ = new BehaviorSubject<string>(
+      parsedToken && parsedToken.unique_name
+    );
   }
 
   get user$(): BehaviorSubject<string> {
@@ -47,53 +50,72 @@ export class AuthenticationService {
 
   login(email: string, password: string): Observable<boolean> {
     return this.http
-      .post(`${environment.apiUrl}/account`, { email, password }, { responseType:'text' })
-      .pipe(map((token: any) => {
-        if(token) {
-          localStorage.setItem(this._tokenKey, token);
-          this._user$.next(email);
-          return true;
-        } else {
-          return false;
-        }
-      }));
+      .post(
+        `${environment.apiUrl}/account`,
+        { email, password },
+        { responseType: 'text' }
+      )
+      .pipe(
+        map((token: any) => {
+          if (token) {
+            localStorage.setItem(this._tokenKey, token);
+            this._user$.next(email);
+            return true;
+          } else {
+            return false;
+          }
+        })
+      );
   }
 
   logout() {
-    if(this.user$.getValue()) {
+    if (this.user$.getValue()) {
       localStorage.removeItem(this._tokenKey);
       this._user$.next(null);
     }
   }
 
-  register(firstname: string, lastname: string, email: string, password: string): Observable<boolean> {
-    return this.http.post(`${environment.apiUrl}/account/register`,
-      {
-        firstname,
-        lastname,
-        email,
-        password,
-        passwordConfirmation: password
-      },
-      {
-        responseType: 'text'
-      }
-    ).pipe(map((token: any) => {
-      if(token) {
-        localStorage.setItem(this._tokenKey, token);
-        this._user$.next(email);
-        return true;
-      } else {
-        return false;
-      }
-    })
-    );
+  register(
+    username: string,
+    firstname: string,
+    lastname: string,
+    email: string,
+    password: string
+  ): Observable<boolean> {
+    return this.http
+      .post(
+        `${environment.apiUrl}/account/register`,
+        {
+          username,
+          firstname,
+          lastname,
+          email,
+          password,
+          passwordConfirmation: password
+        },
+        {
+          responseType: 'text'
+        }
+      )
+      .pipe(
+        map((token: any) => {
+          if (token) {
+            localStorage.setItem(this._tokenKey, token);
+            this._user$.next(email);
+            return true;
+          } else {
+            return false;
+          }
+        })
+      );
   }
 
   checkUserNameAvailability = (email: string): Observable<boolean> => {
-    return this.http.get<boolean>(`${environment.apiUrl}/account/checkusername`, 
-    {
-      params: { email }
-    });
+    return this.http.get<boolean>(
+      `${environment.apiUrl}/account/checkusername`,
+      {
+        params: { email }
+      }
+    );
   };
 }

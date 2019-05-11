@@ -68,7 +68,7 @@ namespace SecretSantaAPI.Controllers
         public async Task<ActionResult<String>> Register(RegisterDTO model)
         {
             IdentityUser user = new IdentityUser { UserName = model.Email, Email = model.Email };
-            ApplicationUser customer = new ApplicationUser { Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
+            ApplicationUser customer = new ApplicationUser { Email = model.Email, Username = model.Username, FirstName = model.FirstName, LastName = model.LastName };
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)

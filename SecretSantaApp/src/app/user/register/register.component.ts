@@ -1,18 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
-import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ValidatorFn,
+  Validators
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-function comparePasswords(control: AbstractControl): { [key: string]: any} {
+function comparePasswords(control: AbstractControl): { [key: string]: any } {
   const password = control.get('password');
   const confirmPassword = control.get('confirmPassword');
-  return password.value === confirmPassword.value ? null : { passwordsDiffer: true};
+  return password.value === confirmPassword.value
+    ? null
+    : { passwordsDiffer: true };
 }
 
-function serverSideValidateUsername(checkAvailabilityFn: (n: string) => Observable<boolean>): ValidatorFn {
+function serverSideValidateUsername(
+  checkAvailabilityFn: (n: string) => Observable<boolean>
+): ValidatorFn {
   return (control: AbstractControl): Observable<{ [key: string]: any }> => {
     return checkAvailabilityFn(control.value).pipe(
       map(available => {
@@ -31,13 +41,18 @@ function serverSideValidateUsername(checkAvailabilityFn: (n: string) => Observab
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  public user : FormGroup;
+  public user: FormGroup;
   public errorMsg: string;
 
-  constructor(private authService: AuthenticationService, private router: Router, private fb: FormBuilder) { }
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit() {
     this.user = this.fb.group({
+      username: ['', Validators.required],
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       email: [
@@ -77,6 +92,7 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.authService
       .register(
+        this.user.value.username,
         this.user.value.firstname,
         this.user.value.lastname,
         this.user.value.email,
@@ -89,7 +105,7 @@ export class RegisterComponent implements OnInit {
               this.router.navigateByUrl(this.authService.redirectUrl);
               this.authService.redirectUrl = undefined;
             } else {
-              this.router.navigate(['/recipe/list']);
+              this.router.navigate(['/dashboard']);
             }
           } else {
             this.errorMsg = `Could not login`;
