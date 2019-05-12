@@ -48,10 +48,16 @@ namespace SecretSantaAPI.Controllers
             return groep;   
         }
 
-        [HttpPost("joingroup")]
+        [HttpPost("joingroup/{groupId}")]
         public ActionResult<Group> JoinGroup(int groupId)
         {
-            _groupRepository.GetById(groupId).AddUser(_userRepository.GetBy(User.Identity.Name));
+            ApplicationUser user = _userRepository.GetBy(User.Identity.Name);
+            Group group = _groupRepository.GetById(groupId);
+            group.AddUser(user);
+            user.Group = group;
+            
+            //_userRepository.GetBy(User.Identity.Name).Group = _groupRepository.GetById(groupId);
+            _userRepository.SaveChanges();
             _groupRepository.SaveChanges();
             return Ok();
         }
@@ -61,6 +67,8 @@ namespace SecretSantaAPI.Controllers
         {
             ApplicationUser user = _userRepository.GetBy(User.Identity.Name);
             user.Group.RemoveUser(user);
+            user.Group = null;
+            _userRepository.SaveChanges();
             _groupRepository.SaveChanges();
             return Ok();
         }

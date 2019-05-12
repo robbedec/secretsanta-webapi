@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
     return this._fetchWishlist$;
   }
 
-  get currentUserGroup$() {
+  get currentUserGroup$(): Observable<Group> {
     return this._fetchCurrentUserGroup$;
   }
 

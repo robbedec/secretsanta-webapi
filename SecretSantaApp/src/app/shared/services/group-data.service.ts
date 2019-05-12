@@ -34,4 +34,10 @@ export class GroupDataService {
       .post(`${environment.apiUrl}/groups/leavegroup`, null)
       .pipe();
   }
+
+  joinGroup(groupId: number) {
+    return this.http
+      .post(`${environment.apiUrl}/groups/joingroup/${groupId}`, null)
+      .pipe();
+  }
 }

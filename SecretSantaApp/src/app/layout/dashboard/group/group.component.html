@@ -43,7 +43,7 @@
         <div fxFlex="20"><img style="width:100%;margin:0;margin-bottom:15px;border-radius:5px"
             src="https://avatars2.githubusercontent.com/u/7189764?s=400&v=4" />
           <mat-card-subtitle style="text-align: center;font-weight: bold">{{ group.groupName }}</mat-card-subtitle>
-          <button style="width:100%" mat-raised-button>{{ 'Join_group' | translate }}</button>
+          <a (click)="joinGroup(group.id)" style="width:100%" mat-raised-button>{{ 'Join_group' | translate }}</a>
         </div>
       </ng-container>
     </mat-card-content>

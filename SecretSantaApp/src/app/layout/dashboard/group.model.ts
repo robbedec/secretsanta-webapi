@@ -13,6 +13,10 @@ export class Group {
     private _messages = new Array<Message>()
   ) {}
 
+  get id(): number {
+    return this._id;
+  }
+
   get groupName(): string {
     return this._groupName;
   }
