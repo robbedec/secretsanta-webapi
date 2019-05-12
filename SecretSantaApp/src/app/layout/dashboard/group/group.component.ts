@@ -15,7 +15,14 @@ export class GroupComponent implements OnInit {
   ngOnInit() {}
 
   joinGroup(groupId: number) {
-    console.log(groupId);
     this.groupDataService.joinGroup(groupId).subscribe();
+    window.location.reload();
   }
+
+  leaveGroup() {
+    this.groupDataService.leaveGroup().subscribe();
+    window.location.reload();
+  }
+
+  onSubmit() {}
 }

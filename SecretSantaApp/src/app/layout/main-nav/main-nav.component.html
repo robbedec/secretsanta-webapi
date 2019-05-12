@@ -22,12 +22,9 @@
       <a class="topnav-icon" matTooltip="Mijn account" [routerLink]="['user.username']">
         <mat-icon>account_circle</mat-icon>
       </a>
-      <a class="topnav-icon" matTooltip="Groep verlaten">
-        <mat-icon>group</mat-icon>
-      </a>
-      <button class="topnav-icon" matTooltip="Berichten" (click)="leaveGroup()">
+      <a class="topnav-icon" matTooltip="Berichten">
         <mat-icon>mail_outline</mat-icon>
-      </button>
+      </a>
       <button mat-icon-button matTooltip="Taal veranderen" class="topnav-icon" [matMenuTriggerFor]="language">
         <mat-icon>language</mat-icon>
       </button>
