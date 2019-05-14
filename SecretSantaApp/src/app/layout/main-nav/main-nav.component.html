@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="true">
+    [opened]="false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item [routerLink]="['robbedec']">profile</a>
@@ -11,15 +11,17 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
+      <!--
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+      -->
       <a style="color:inherit;text-decoration:none" [routerLink]="['/dashboard']"><span>Secret santa</span></a>
       <span class="fill-space"></span>
       <span *ngIf="(loggedInUser$ | async)?.username as user">{{ user }}
 
       </span>
-      <a class="topnav-icon" matTooltip="Mijn account" [routerLink]="['user.username']">
+      <a class="topnav-icon" matTooltip="Mijn account" [routerLink]="['/' + (user$ | async)?.username]">
         <mat-icon>account_circle</mat-icon>
       </a>
       <a class="topnav-icon" matTooltip="Berichten">

@@ -9,14 +9,13 @@ import { Present } from '../../dashboard/present.model';
 })
 export class OverviewComponent implements OnInit {
   @Input() public user: User;
-  displayedColumns: string[] = ["Name", "Price", "Category"];
+  public readonly categories = ['music', 'electronics', 'sports', 'outdoors'];
+
   dataSource: Present[];
-  
-  constructor() { 
-  }
+
+  constructor() {}
 
   ngOnInit() {
     this.dataSource = this.user.wishlist.presents;
   }
-
 }

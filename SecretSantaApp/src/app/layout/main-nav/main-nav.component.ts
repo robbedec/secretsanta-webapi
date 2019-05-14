@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { AuthenticationService } from '../../user/authentication.service';
 import { TranslateService } from '@ngx-translate/core';
 import { GroupDataService } from '../../shared/services/group-data.service';
+import { UserDataService } from 'src/app/shared/services/user-data.service';
 
 @Component({
   selector: 'app-main-nav',
@@ -13,6 +14,7 @@ import { GroupDataService } from '../../shared/services/group-data.service';
 })
 export class MainNavComponent {
   loggedInUser$ = this._authenticationService.user$;
+  user$ = this.userDataService.getCurrentUser$;
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map(result => result.matches));
@@ -21,7 +23,8 @@ export class MainNavComponent {
     private breakpointObserver: BreakpointObserver,
     private _authenticationService: AuthenticationService,
     private translate: TranslateService,
-    private groupDataService: GroupDataService
+    private groupDataService: GroupDataService,
+    private userDataService: UserDataService
   ) {}
 
   logout() {
