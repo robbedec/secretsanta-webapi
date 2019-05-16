@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { WishlistDataService } from '../../shared/services/wishlist-data.service';
 import { GroupDataService } from '../../shared/services/group-data.service';
 import { Observable, Subject } from 'rxjs';
-import { Wishlist } from './wishlist.model';
-import { Group } from './group.model';
+import { Wishlist } from '../../shared/models/wishlist.model';
+import { Group } from '../../shared/models/group.model';
 
 @Component({
   selector: 'app-dashboard',

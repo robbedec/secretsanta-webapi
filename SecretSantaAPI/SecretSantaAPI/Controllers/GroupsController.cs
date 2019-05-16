@@ -43,7 +43,7 @@ namespace SecretSantaAPI.Controllers
             Group groep = _userRepository.GetBy(User.Identity.Name).Group;
             if(groep == null)
             {
-                return NotFound();
+               return null;
             }
             return groep;   
         }

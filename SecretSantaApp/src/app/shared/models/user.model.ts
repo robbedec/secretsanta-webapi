@@ -1,4 +1,4 @@
-import { Wishlist } from '../dashboard/wishlist.model';
+import { Wishlist } from './wishlist.model';
 
 export class User {
   private _id: number;
@@ -32,15 +32,18 @@ export class User {
   }
 
   static fromJSON(json: any): User {
-    const rec = new User(
-      json.username,
-      json.firstName,
-      json.lastName,
-      json.email,
-      json.avatarUrl,
-      Wishlist.fromJSON(json.wishlist)
-    );
-    rec._id = json.id;
+    let rec = null;
+    if (json != null) {
+      rec = new User(
+        json.username,
+        json.firstName,
+        json.lastName,
+        json.email,
+        json.avatarUrl,
+        Wishlist.fromJSON(json.wishlist)
+      );
+      rec._id = json.id;
+    }
     return rec;
   }
 }

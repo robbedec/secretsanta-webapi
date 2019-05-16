@@ -1,10 +1,8 @@
-import { User } from '../../layout/profile/user.model';
-import { map } from 'rxjs/operators';
+import { User } from '../../shared/models/user.model';
 
 export class Message {
   private _id: number;
 
-  // tslint:disable-next-line: variable-name
   constructor(private _sender: User, private _content: String) {}
 
   get user(): User {

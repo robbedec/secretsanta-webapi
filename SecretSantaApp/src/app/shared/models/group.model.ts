@@ -1,4 +1,4 @@
-import { User } from '../profile/user.model';
+import { User } from './user.model';
 import { Message } from '../../shared/models/message.model';
 
 export class Group {
@@ -42,16 +42,25 @@ export class Group {
   }
 
   static fromJSON(json: any): Group {
-    // tslint:disable-next-line: max-line-length
-    const rec = new Group(
-      json.groupName,
-      json.maxPrice,
-      json.partyDate,
-      json.public,
-      json.members.map(User.fromJSON),
-      json.messages.map(Message.fromJSON)
-    );
-    rec._id = json.id;
+    let rec = null;
+    if (json === 0) {
+      console.log('test2');
+      return null;
+    } else if (json != null) {
+      rec = new Group(
+        json.groupName,
+        json.maxPrice,
+        json.partyDate,
+        json.public,
+        json.members.map(User.fromJSON),
+        json.messages.map(Message.fromJSON)
+      );
+      rec._id = json.id;
+    }
+
+    console.log('test3');
+    console.log(rec);
+
     return rec;
   }
 

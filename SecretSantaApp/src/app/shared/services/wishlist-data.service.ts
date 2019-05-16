@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Wishlist } from '../../layout/dashboard/wishlist.model';
+import { Wishlist } from '../../shared/models/wishlist.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable, Subject } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
-import { Present } from '../../layout/dashboard/present.model';
+import { Present } from '../../shared/models/present.model';
 
 @Injectable({
   providedIn: 'root'

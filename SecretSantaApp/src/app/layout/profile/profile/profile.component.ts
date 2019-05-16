@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserDataService } from '../../../shared/services/user-data.service';
 import { Observable } from 'rxjs';
-import { User } from '../user.model';
-import { async } from 'q';
+import { User } from '../../../shared/models/user.model';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { Group } from '../../layout/dashboard/group.model';
+import { Group } from '../../shared/models/group.model';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -14,6 +14,15 @@ export class GroupDataService {
   constructor(private http: HttpClient) {}
 
   get currentUserGroup$(): Observable<Group> {
+    this.http
+      .get(`${environment.apiUrl}/Groups/CurrentUserGroup`, {
+        observe: 'response'
+      })
+      .subscribe(response => {
+        if (response.status === 204) {
+          return Group.fromJSON(0);
+        }
+      });
     return this.http
       .get(`${environment.apiUrl}/Groups/CurrentUserGroup`)
       .pipe(map(Group.fromJSON));

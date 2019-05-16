@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Wishlist } from '../wishlist.model';
-import { Present } from '../present.model';
+import { Wishlist } from '../../../shared/models/wishlist.model';
+import { Present } from '../../../shared/models/present.model';
 import { Subject } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
 import { WishlistDataService } from '../../../shared/services/wishlist-data.service';

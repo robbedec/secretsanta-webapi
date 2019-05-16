@@ -39,7 +39,7 @@
     <mat-card-header>
       <mat-card-title>{{ 'Groups' | translate }}</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content fxLayout="column" fxLayoutGap="5%">
       <form (ngSubmit)="onSubmit" method="post">
         <ng-container *ngFor="let group of groups">
           <div fxFlex="20"><img style="width:100%;margin:0;margin-bottom:15px;border-radius:5px"
@@ -49,6 +49,7 @@
           </div>
         </ng-container>
       </form>
+      <a fxFlex="100" mat-raised-button>{{ 'Create_group' | translate }}</a>
     </mat-card-content>
   </ng-template>
 </mat-card>

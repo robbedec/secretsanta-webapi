@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Group } from '../group.model';
+import { Group } from '../../../shared/models/group.model';
 import { GroupDataService } from '../../../shared/services/group-data.service';
 import { Router } from '@angular/router';
 @Component({
@@ -19,7 +19,6 @@ export class GroupComponent implements OnInit {
 
   joinGroup(groupId: number) {
     this.groupDataService.joinGroup(groupId).subscribe();
-    this.ngOnInit();
     this.router
       .navigateByUrl('/', { skipLocationChange: true })
       .then(() => this.router.navigate(['/dashboard']));
@@ -30,5 +29,9 @@ export class GroupComponent implements OnInit {
     this.router
       .navigateByUrl('/', { skipLocationChange: true })
       .then(() => this.router.navigate(['/dashboard']));
+  }
+
+  isEmptyObject(obj) {
+    return !(obj && Object.keys(obj).length === 0);
   }
 }

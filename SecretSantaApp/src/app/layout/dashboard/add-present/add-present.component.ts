@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Present } from '../present.model';
+import { Present } from '../../../shared/models/present.model';
 import {
   FormGroup,
   FormControl,
