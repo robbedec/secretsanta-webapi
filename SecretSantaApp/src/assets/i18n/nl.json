@@ -20,5 +20,13 @@
   "Join_group": "Inschrijven",
   "Leave_group": "Groep verlaten",
   "Groups": "Groepen",
-  "Create_group": "Groep aanmaken"
+  "Create_group": "Groep aanmaken",
+  "Group_name": "Groepnaam",
+  "Public": "Publiek",
+  "PartyDate": "Feest datum",
+  "Max_Price": "Max prijs",
+  "Cancel": "Annuleren",
+  "Wishlist": "Wenslijst",
+  "Messages": "Berichten",
+  "Information": "Informatie"
 }

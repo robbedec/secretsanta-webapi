@@ -49,4 +49,11 @@ export class GroupDataService {
       .post(`${environment.apiUrl}/groups/joingroup/${groupId}`, null)
       .pipe();
   }
+
+  addGroup(group: Group) {
+    console.log(group.toJSON());
+    return this.http
+      .post(`${environment.apiUrl}/groups/create`, group.toJSON())
+      .pipe();
+  }
 }

@@ -6,11 +6,10 @@
         <mat-card-title>{{ user?.name }}</mat-card-title>
         <mat-card-subtitle>{{ user?.username }}</mat-card-subtitle>
         <mat-divider style="position:relative; margin-bottom:10px;"></mat-divider>
-        <button mat-stroked-button>Edit</button>
       </div>
       <div fxLayout="row" fxLayoutAlign="center" fxFlex="80">
         <mat-tab-group fxFlex="80">
-          <mat-tab label="Wishlist">
+          <mat-tab label="{{'Wishlist' | translate}}">
             <mat-list fxFlexFill fxLayout="column">
               <mat-list-item *ngFor="let present of user?.wishlist?.presents">
                 <div fxFlexFill fxLayoutAlign="center center">
@@ -23,8 +22,8 @@
               </mat-list-item>
             </mat-list>
           </mat-tab>
-          <mat-tab label="Messages">Content</mat-tab>
-          <mat-tab label="Information">Content</mat-tab>
+          <mat-tab label="{{ 'Messages' | translate }}">Content</mat-tab>
+          <mat-tab label="{{ 'Information' | translate }}">Content</mat-tab>
         </mat-tab-group>
       </div>
     </div>

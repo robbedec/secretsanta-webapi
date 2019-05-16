@@ -15,6 +15,11 @@ namespace SecretSantaAPI.Data.Repositories
         {
             _dbContext = dbContext;
         }
+        public void Add(Group group)
+        {
+            _dbContext.Groups.Add(group);
+        }
+
         public IEnumerable<Group> GetAll()
         {
             return _dbContext.Groups.Include(b => b.Members).Include(b => b.Messages);

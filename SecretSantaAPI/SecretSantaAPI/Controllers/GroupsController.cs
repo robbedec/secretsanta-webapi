@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SecretSantaAPI.DTOs;
 using SecretSantaAPI.Models;
 
 namespace SecretSantaAPI.Controllers
@@ -30,6 +31,15 @@ namespace SecretSantaAPI.Controllers
         public ICollection<Group> GetGroups()
         {
             return _groupRepository.GetAll().ToList();
+        }
+
+        [HttpPost("Create")]
+        public ActionResult<Group> PostGroup(GroupDTO group)
+        {
+            Group groupToCreate = new Group { GroupName = group.GroupName, MaxPrice = (int)group.MaxPrice, PartyDate = group.PartyDate, Public = group.Public };
+            _groupRepository.Add(groupToCreate);
+            _groupRepository.SaveChanges();
+            return Ok();
         }
 
         // GET: api/Group

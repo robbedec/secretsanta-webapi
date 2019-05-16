@@ -20,6 +20,13 @@
   "Join_group": "Join group",
   "Leave_group": "Leave group",
   "Groups": "Group overview",
-  "Create_group": "Create group"
-
+  "Create_group": "Create group",
+  "Group_name": "Group name",
+  "Public": "Public",
+  "PartyDate": "Party date",
+  "Max_Price": "Max price",
+  "Cancel": "Cancel",
+  "Wishlist": "Wishlist",
+  "Messages": "Messages",
+  "Information": "Information"
 }

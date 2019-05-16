@@ -1,8 +1,23 @@
 <mat-card fxLayout="column" fxLayoutGap="2%">
   <ng-container *ngIf="group; else elseBlock">
     <div fxLayout="row" fxLayoutGap="2%">
-      <mat-card fxFlex="40"></mat-card>
       <mat-card fxFlex="60">
+        <mat-card-header>
+          <mat-card-title>Details</mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayout="column" fxLayoutGap="2%">
+          <div>
+            <strong>{{'Group_name' | translate}}:</strong> {{group.groupName}}
+          </div>
+          <div>
+            <strong>{{'Max_Price' | translate}}:</strong> {{group.maxPrice}}
+          </div>
+          <div>
+            <strong>{{'PartyDate' | translate}}:</strong> {{group.partyDate | date: longDate}}
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card fxFlex="40">
         <mat-card-header>
           <mat-card-title>{{ 'Groupchat' | translate }}</mat-card-title>
         </mat-card-header>
@@ -22,8 +37,8 @@
     </div>
     <mat-card>
       <mat-card-header>
-        <mat-card-title>{{ 'Group' | translate }} {{ group?.groupName }} ({{ group?.members.length }})
-          {{ 'Members' | translate }}</mat-card-title>
+        <mat-card-title>{{ group?.groupName }} ({{ group?.members.length }} {{ 'Members' | translate }})
+        </mat-card-title>
       </mat-card-header>
       <mat-card-content fxLayout="row wrap" fxLayoutGap="5%">
         <mat-card-title fxLayout="column" fxFlex="20" *ngFor="let member of group?.members">
@@ -40,7 +55,7 @@
       <mat-card-title>{{ 'Groups' | translate }}</mat-card-title>
     </mat-card-header>
     <mat-card-content fxLayout="column" fxLayoutGap="5%">
-      <form (ngSubmit)="onSubmit" method="post">
+      <form (ngSubmit)="onSubmit" method="post" fxLayout="row" fxLayoutGap="5%">
         <ng-container *ngFor="let group of groups">
           <div fxFlex="20"><img style="width:100%;margin:0;margin-bottom:15px;border-radius:5px"
               src="https://avatars2.githubusercontent.com/u/7189764?s=400&v=4" />
@@ -49,7 +64,7 @@
           </div>
         </ng-container>
       </form>
-      <a fxFlex="100" mat-raised-button>{{ 'Create_group' | translate }}</a>
+      <a fxFlex="100" mat-raised-button (click)="openDialog()">{{ 'Create_group' | translate }}</a>
     </mat-card-content>
   </ng-template>
 </mat-card>

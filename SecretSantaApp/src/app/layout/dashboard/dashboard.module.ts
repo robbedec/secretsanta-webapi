@@ -15,7 +15,7 @@ import { ProfileModule } from '../profile/profile.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { StatModule } from '../../shared/modules/stat/stat.module';
 import { TranslateModule } from '@ngx-translate/core';
-import { GroupComponent } from './group/group.component';
+import { GroupComponent, CreateGroupComponent } from './group/group.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -27,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     FilterPresentComponent,
     EditPresentComponent,
     DashboardComponent,
-    GroupComponent
+    GroupComponent,
+    CreateGroupComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +40,7 @@ import { FormsModule } from '@angular/forms';
     StatModule,
     TranslateModule,
     FormsModule
-  ]
+  ],
+  entryComponents: [CreateGroupComponent]
 })
 export class DashboardModule {}

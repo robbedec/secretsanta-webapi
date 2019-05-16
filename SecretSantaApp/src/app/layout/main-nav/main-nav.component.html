@@ -21,9 +21,6 @@
       <span *ngIf="(loggedInUser$ | async)?.username as user">{{ user }}
 
       </span>
-      <a class="topnav-icon" matTooltip="Mijn account" [routerLink]="['/' + user$.username]">
-        <mat-icon>account_circle</mat-icon>
-      </a>
       <a class="topnav-icon" matTooltip="Berichten">
         <mat-icon>mail_outline</mat-icon>
       </a>
@@ -37,9 +34,6 @@
         </button>
         <button mat-menu-item (click)="changeLang('nl')">
           <span>{{ 'Dutch' | translate }}</span>
-        </button>
-        <button mat-menu-item (click)="changeLang('en')">
-          <span>{{ 'French' | translate }}</span>
         </button>
       </mat-menu>
 
