@@ -36,7 +36,7 @@ namespace SecretSantaAPI.Data
                 await CreateUser(robbedec.Email, "P@ssword1");
 
                 ApplicationUser webiv = new ApplicationUser { Username = "webiv", Email = "webiv@hogent.be", FirstName = "Pieter", LastName = "Hogent", AvatarUrl = "https://avatars3.githubusercontent.com/u/22676272?s=400&v=4" };
-                await CreateUser(webiv.Email, "P@ssword1");
+                await CreateUser(webiv.Email, "gelukkiggeennetbeans");
 
                 ApplicationUser jan = new ApplicationUser { Username = "jandec", Email = "jan.mieke@telenet.be", FirstName = "Jan", LastName = "Decorte" };
                 await CreateUser(jan.Email, "P@ssword1");
