@@ -3,7 +3,7 @@ import { Group } from '../../../shared/models/group.model';
 import { GroupDataService } from '../../../shared/services/group-data.service';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { group } from '@angular/animations';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 export interface GroupData {
   /*groupName: string;
@@ -55,18 +55,6 @@ export class GroupComponent implements OnInit {
         partyDate: this.partyDate
       }
     });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.groupName = result;
-      if (result != null) {
-        this.groupDataService
-          .addGroup(new Group(result[0], result[1], result[2], true))
-          .subscribe();
-        this.router
-          .navigateByUrl('/', { skipLocationChange: true })
-          .then(() => this.router.navigate(['/dashboard']));
-      }
-    });
   }
 }
 
@@ -74,11 +62,42 @@ export class GroupComponent implements OnInit {
   selector: 'app-create-group-dialog',
   templateUrl: 'create-group-dialog.html'
 })
-export class CreateGroupComponent {
+export class CreateGroupComponent implements OnInit {
+  public groupForm: FormGroup;
   constructor(
+    private router: Router,
     public dialogRef: MatDialogRef<CreateGroupComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: GroupData
+    @Inject(MAT_DIALOG_DATA) public data: GroupData,
+    private fb: FormBuilder,
+    private groupDataService: GroupDataService
   ) {}
+
+  ngOnInit() {
+    this.groupForm = this.fb.group({
+      groupName: [null, Validators.required],
+      maxPrice: [null, [Validators.required, Validators.min(0)]],
+      partyDate: [null]
+    });
+  }
+
+  onYesClick(): void {
+    this.dialogRef.close();
+    if (this.groupForm.valid) {
+      this.groupDataService
+        .addGroup(
+          new Group(
+            this.groupForm.value.groupName,
+            this.groupForm.value.maxPrice,
+            this.groupForm.value.partyDate,
+            true
+          )
+        )
+        .subscribe();
+      this.router
+        .navigateByUrl('/', { skipLocationChange: true })
+        .then(() => this.router.navigate(['/dashboard']));
+    }
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

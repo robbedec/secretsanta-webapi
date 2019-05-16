@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FilterPresentComponent } from './filter-present/filter-present.component';
-import { EditPresentComponent } from './edit-present/edit-present.component';
 import { PresentFilterPipe } from './present-filter.pipe';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { PresentComponent } from './present/present.component';
@@ -25,7 +24,6 @@ import { FormsModule } from '@angular/forms';
     AddPresentComponent,
     PresentFilterPipe,
     FilterPresentComponent,
-    EditPresentComponent,
     DashboardComponent,
     GroupComponent,
     CreateGroupComponent
