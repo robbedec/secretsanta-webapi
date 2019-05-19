@@ -129,7 +129,7 @@ namespace SecretSantaAPI
             app.UseCors("AllowAllOrigins");
 
 
-            secretSantaDataInitializer.InitializeData().Wait();
+            //secretSantaDataInitializer.InitializeData().Wait();
         }
     }
 }
