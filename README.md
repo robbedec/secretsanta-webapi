@@ -12,7 +12,8 @@ wachtwoord: gelukkiggeennetbeans
 
 ### robbedec
 email: robbe.decorte@student.hogent.be <br>
-wachtwoord: P@ssword1
+wachtwoord: P@ssword1 <br><br>
+Deze gebruiker bevat als enige enkele items op zijn wishlist bij het uitvoeren van de data initializer.
 
 # proxy-server port
 <b>De poort is voor praktische doeleinden ingesteld op 44383</b> <br>
