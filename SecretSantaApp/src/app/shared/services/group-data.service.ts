@@ -51,7 +51,6 @@ export class GroupDataService {
   }
 
   addGroup(group: Group) {
-    console.log(group.toJSON());
     return this.http
       .post(`${environment.apiUrl}/groups/create`, group.toJSON())
       .pipe();

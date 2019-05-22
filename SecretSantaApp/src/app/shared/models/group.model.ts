@@ -44,7 +44,6 @@ export class Group {
   static fromJSON(json: any): Group {
     let rec = null;
     if (json === 0) {
-      console.log('test2');
       return null;
     } else if (json != null) {
       rec = new Group(
@@ -57,10 +56,6 @@ export class Group {
       );
       rec._id = json.id;
     }
-
-    console.log('test3');
-    console.log(rec);
-
     return rec;
   }
 

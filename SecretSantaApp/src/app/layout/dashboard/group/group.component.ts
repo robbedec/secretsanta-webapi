@@ -34,16 +34,22 @@ export class GroupComponent implements OnInit {
 
   joinGroup(groupId: number) {
     this.groupDataService.joinGroup(groupId).subscribe();
-    this.router
-      .navigateByUrl('/', { skipLocationChange: true })
-      .then(() => this.router.navigate(['/dashboard']));
+
+    setTimeout(() => {
+      this.router
+        .navigateByUrl('/', { skipLocationChange: true })
+        .then(() => this.router.navigate(['/dashboard']));
+    }, 1000);
   }
 
   leaveGroup() {
     this.groupDataService.leaveGroup().subscribe();
-    this.router
-      .navigateByUrl('/', { skipLocationChange: true })
-      .then(() => this.router.navigate(['/dashboard']));
+
+    setTimeout(() => {
+      this.router
+        .navigateByUrl('/', { skipLocationChange: true })
+        .then(() => this.router.navigate(['/dashboard']));
+    }, 1000);
   }
 
   openDialog(): void {
@@ -93,9 +99,11 @@ export class CreateGroupComponent implements OnInit {
           )
         )
         .subscribe();
-      this.router
-        .navigateByUrl('/', { skipLocationChange: true })
-        .then(() => this.router.navigate(['/dashboard']));
+      setTimeout(() => {
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => this.router.navigate(['/dashboard']));
+      }, 1000);
     }
   }
 
