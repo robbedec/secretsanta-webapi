@@ -3,7 +3,8 @@ web4-20182019-gent-2b12c1-robbedec created by GitHub Classroom
 
 # Gebruikers
 
-Er is geen verschil tussen de gebruikers buiten hun persoonlijke gegevens, er wordt geen gebruik gemaakt van admin gebruikers of dergelijke.
+Er is geen verschil tussen de gebruikers buiten hun persoonlijke gegevens, er wordt geen gebruik gemaakt van admin gebruikers of dergelijke. <br>
+De data initializer staat standaard aan dus de nieuwe gegevens worden niet opgeslaan bij het heropstarten van de API.
 
 ### webiv
 email: webiv@hogent.be <br>
