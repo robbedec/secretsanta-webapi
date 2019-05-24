@@ -23,4 +23,4 @@ bash: dotnet run = 5001 <br>
 visual studio: start = 44383
 
 # Extra technologie
-Ngx translate: i118n toepassen om de site makkelijk te vertalen 
+Ngx-translate: i118n toepassen om de site makkelijk te vertalen via een http client met custom pipes
